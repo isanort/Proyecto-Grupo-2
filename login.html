@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookTrack</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="image.png">
+    <link rel="stylesheet" href="login.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
+        </style>
+</head>
+<body aria-label="Body" class = "layout">
+    <header class = "header"><img class="logo" src="book2.png"><h1 class = cont-header>BookTrack</h1><div></div></header>
+    <main>
+        <div class="cont-main">
+            <div class="text">
+                <h2>Log in</h2>
+                <form action="action_page.php" method="get" class = "form">
+                    <label for="email"><b>Email</b></label></br>
+                    <div class="input">
+                    <input type="email" placeholder="Enter Email" name="email" required></br></div>
+                    <label for="psw"><b>Password</b></label></br>
+                    <div class="input">
+                    <input type="password" placeholder="Enter Password" name="psw" required></br></div>
+                    <label>
+                        <input class ="checkbox" type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                    <br>
+                    <div class="clearfix">
+                        <button type="submit" class="loginbtnbtn">Log in</button>
+                    </div>
+                    <div class="cancel">
+                        <button type="button" class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="cont-footer"><adress>Contacto: contacto@booktrack.com | Teléfono: +34 123 456 789<br>• 2024 BookTrack. Todos los derechos reservados.</adress></div></footer>
+</body>
+</html>

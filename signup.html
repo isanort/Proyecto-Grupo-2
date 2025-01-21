@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookTrack</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="image.png">
+    <link rel="stylesheet" href="signup.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
+        </style>
+</head>
+<body aria-label="Body" class = "layout">
+    <header class = "header"><img class="logo" src="book2.png"><h1 class = cont-header>BookTrack</h1><div></div></header>
+    <main>
+        <div class="cont-main">
+            <div class="text">
+                <h2>Sign Up</h2>
+                <p>Please fill in this form to create an account.</p>
+                <form action="action_page.php" method="get" class = "form">
+                    <label for="email"><b>Email</b></label></br>
+                    <div class="input">
+                    <input type="email" placeholder="Enter Email" name="email" required></br></div>
+                    <label for="psw"><b>Password</b></label></br>
+                    <div class="input">
+                    <input type="password" placeholder="Enter Password" name="psw" required></br></div>
+                    <label for="psw-repeat"><b>Repeat Password</b></label></br>
+                    <div class="input">
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required></br></div>
+                    <div class="input">
+                    <label for="img"><b>Choose an image for your avatar</b></label></br>
+                    <input class ="image" type="file" placeholder="Enter Image" name="img" accept="image/*" ></div>
+                    <label class="terms">
+                        <input class ="checkbox" type="checkbox" checked="checked" name="remember"> By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p></label>
+                    <div class="clearfix">
+                        <button type="button" class="cancelbtn">Cancel</button>
+                        <button type="submit" class="signupbtn">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="cont-footer"><adress>Contacto: contacto@booktrack.com | Teléfono: +34 123 456 789<br>• 2024 BookTrack. Todos los derechos reservados.</adress></div></footer>
+</body>
+</html>
