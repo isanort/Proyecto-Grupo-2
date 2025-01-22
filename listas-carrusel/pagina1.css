@@ -1,0 +1,169 @@
+/* Aplica box-sizing: border-box a todos los elementos de la página */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Eagle_Lake';
+    src: url('fonts/EagleLake-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Eagle_Lake', Arial, sans-serif;
+    color: #fff;
+    font-style: italic;
+    background-image: url('images/fondo.png');
+    background-position: top center; /* La imagen empieza desde la parte superior, centrada */
+    background-repeat: repeat-y; /* Se repite solo verticalmente */
+    background-size: auto; /* Mantiene el tamaño original de la imagen */
+    min-height: 100%; /* Asegura que el contenido ocupe todo el alto */
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #300458;
+    color: #fff;
+    padding: 25px 20px;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-right: 2cm;
+    border: 3px solid #5f52aa;
+    transition: all 0.3s ease;
+}
+
+.user-icon:hover {
+    background-color: #a49bda;
+    transform: scale(1.1);
+}
+
+header a {
+    text-decoration: none;
+}
+
+header h1 {
+    font-size: 48px;
+    margin: 0;
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header h1:hover {
+    color: #a49bda;
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: #300458;
+    color: #fff;
+    padding: 20px 25px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 12px;
+}
+
+.layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 180px 20px 10px 20px;
+}
+
+.titulo {
+    background-color: #300458;
+    color: white;
+    padding: 15px 8px;
+    text-align: center;
+    margin-top: 1.5cm; /* Separación entre el fondo y el header */
+    margin-bottom: 10px; /* Espacio entre el título y el carrousel */
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline-block;
+    line-height: 1.5;
+    width: calc(100% - 40px); /* Especifica el ancho de los títulos de cada sección */
+    max-width: none;
+}
+
+.titulo a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.titulo a:hover {
+    text-decoration: underline;
+    color: #a49bda;
+}
+
+/* Carruseles */
+.carousel-container {
+    width: calc(100% - 40px); /* Igual que el tamaño del título de la sección */
+    overflow-x: auto;
+    padding: 0 20px; /* Padding a 0 para evitar márgenes extra */
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Así el padding se mantiene dentro del contenedor */
+    overflow-y: hidden;
+}
+
+.carousel-items {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 10px;
+    width: fit-content;
+}
+
+.carousel-item {
+    width: 200px;
+    height: auto;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.1);
+}
+
+/* Ocultar la barra de desplazamiento horizontal */
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Eliminar márgenes adicionales entre los carrousels */
+.layout .carousel-container {
+    margin-top: 0;
+}
+
+/* Separación entre el último carrousel y el footer */
+.carousel-container:last-child {
+    margin-bottom: 130px;
+}
