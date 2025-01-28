@@ -7,7 +7,7 @@
 }
 
 body {
-    margin-top: 11%;
+    margin-top: 10%;
     font-family: "Eagle Lake", serif;
     font-weight: 400;
     font-style: normal;
@@ -72,8 +72,8 @@ object-fit: contain;
 }
 
 .portada img {
-    height: 300px;
-    width: 200px;
+    height: 400px;
+    width: 300px;
 }
 
 h3{
@@ -95,4 +95,6 @@ footer {
     bottom: 0;
     position: fixed;
     width: 100%;
+    height: 10%;
+    padding-bottom: 1%;
 }
