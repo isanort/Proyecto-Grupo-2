@@ -1,0 +1,98 @@
+
+
+*  .eagle-lake-regular {
+    font-family: "Eagle Lake", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin-top: 11%;
+    font-family: "Eagle Lake", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #300458;
+    background-image: url("./libro.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 150%;
+}
+
+  /* Título de la galería */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #300458;
+    color: #fff;
+    padding: 25px 20px;
+    z-index: 1000;
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row-reverse; /* Invertir el orden de los elementos */
+}
+.user-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-left: 2cm;
+    margin-right: 1cm;
+    border: 3px solid #5F52AA;
+    transition: all 0.3s ease;
+}
+.user-icon:hover {
+    background-color: #A49BDA;
+    transform: scale(1.1);
+}
+header a {
+    text-decoration: none;
+}
+header h1 {
+    font-size: 48px;
+    margin: 0;
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-left: 1cm;
+}
+header h1:hover {
+    color: #A49BDA;
+    transform: scale(1.1);
+}
+
+h2 {
+    color: white;
+}
+
+.portada {
+object-fit: contain;
+}
+
+.portada img {
+    height: 300px;
+    width: 200px;
+}
+
+h3{
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+h4 {
+    color: white;
+}
+
+footer {
+    background-color: #300458;
+    color: white;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}

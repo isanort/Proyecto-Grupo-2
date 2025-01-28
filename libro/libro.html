@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro</title>
+    <link rel="stylesheet" href="libro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Metamorphous&family=Modern+Antiqua&family=Quintessential&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <!-- Enlace al perfil (página futura) -->
+            <a href="perfil.html">
+                <img src="./user.png" alt="User Icon" class="user-icon">
+            </a>
+            <!-- Enlace al menú/index (página futura) -->
+            <a href="index.html">
+                <h1>BookTrack</h1>
+            </a>
+        </div>
+    </header>
+    <style>
+        .container {
+        display: grid;
+        grid-template-areas:
+            "header header"
+            "menu content"
+            "footer footer";
+        grid-template-columns: 1fr 3fr;
+        gap: 5px;
+        background-color: #5F52AA;
+        padding: 5px;
+        }
+        .container > div {
+        background-color: #300458;
+        padding: 10px;
+        }
+        .container > div.titulo {
+        grid-area: header;
+        text-align: center;
+        }
+        .container > div.portada {
+        grid-area: menu;
+        }
+        .container > div.content {
+        grid-area: content;
+        }
+        .container > div.sinopsis {
+        grid-area: footer;
+        }
+        </style>
+
+        <div class="container">
+        <div class="titulo"><h2>Título</h2></div>
+        <div class="portada"><img src="./fondo.png" alt="Portada"></div>
+        <div class="content"><h3>Autor</h3><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Ridiculus sit nisl laoreet facilisis aliquet. Potenti dignissim litora eget montes rhoncus sapien neque urna. Cursus libero sapien integer magnis ligula lobortis quam ut.</p></div>
+        <div class="sinopsis"><h4>Sinopsis</h4></div>
+        </div>
+    <footer id="contacto">
+        <br>
+        <address>Contacto: contacto@booktrack.com | Teléfono: +34 123 456 789</address>
+        <p>&copy; 2024 BookTrack. Todos los derechos reservados.</p>
+        <br>
+    </footer>
+    <body>
