@@ -86,13 +86,19 @@ main {
     background-size: cover;
     background-position: center;
     height: 100%;
+    display:flex;
+    justify-content: center;
 }
 
+
 .gallery {
+    align-self: center;
     display: flex;
     flex-direction: column;
     gap: 2em;
+    width: 100%;
 }
+
 
 .row1 img{
     width: 200px; /* Escala relativa al contenedor */
@@ -101,7 +107,6 @@ main {
     border-radius: 8px; /* Unidades absolutas */
     border-color: #5f52aa;
     transition: transform 0.3s ease; /* Animación suave */
-    margin-top: 125px;
 }
 
 .row2 img {
