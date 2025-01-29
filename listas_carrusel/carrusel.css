@@ -103,7 +103,7 @@ footer {
     color: white;
     padding: 15px 8px;
     text-align: center;
-    margin-top: 1.5cm; /* Separación entre el fondo y el header */
+    margin-top: 0cm; /* Separación entre el fondo y el header */
     margin-bottom: 10px; /* Espacio entre el título y el carrousel */
     margin-left: 20px;
     margin-right: 20px;
