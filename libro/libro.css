@@ -1,5 +1,4 @@
 
-
 *  .eagle-lake-regular {
     font-family: "Eagle Lake", serif;
     font-weight: 400;
@@ -7,7 +6,7 @@
 }
 
 body {
-    margin-top: 10%;
+    margin: 0;
     font-family: "Eagle Lake", serif;
     font-weight: 400;
     font-style: normal;
@@ -17,50 +16,109 @@ body {
     background-size: 100% 150%;
 }
 
-  /* Título de la galería */
 header {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    height: 12vh;
     width: 100%;
     background-color: #300458;
     color: #fff;
-    padding: 25px 20px;
     z-index: 1000;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .header-content {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    flex-direction: row-reverse; /* Invertir el orden de los elementos */
+    padding: 0 2rem; /* Padding solo en los lados */
 }
+
 .user-icon {
-    width: 80px;
-    height: 80px;
+    width: auto;
+    height: 3.1em;
     border-radius: 50%;
-    margin-left: 2cm;
-    margin-right: 1cm;
-    border: 3px solid #5F52AA;
+    align-self: center;
+    border: 0.2rem solid #5f52aa;
     transition: all 0.3s ease;
 }
+
 .user-icon:hover {
-    background-color: #A49BDA;
+    background-color: #a49bda;
     transform: scale(1.1);
 }
+
+h1 {
+    margin: 0;
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "menu content"
+        "footer footer";
+    grid-template-columns: 1fr 5fr;
+    gap: 5px;
+    background-color: #5F52AA;
+    padding: 5px;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
 header a {
     text-decoration: none;
 }
+
 header h1 {
-    font-size: 48px;
     margin: 0;
     color: white;
     transition: color 0.3s ease, transform 0.3s ease;
-    margin-left: 1cm;
 }
+
 header h1:hover {
-    color: #A49BDA;
+    color: #a49bda;
     transform: scale(1.1);
+}
+
+.layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 180px 20px 10px 20px;
+}
+
+.titulo {
+    background-color: #300458;
+    color: white;
+    padding: 15px 8px;
+    text-align: center;
+    margin-top: 0cm;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline-block;
+    line-height: 1.5;
+    width: calc(100% - 40px);
+    max-width: none;
+}
+
+.titulo a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.titulo a:hover {
+    text-decoration: underline;
+    color: #a49bda;
 }
 
 h2 {
@@ -90,11 +148,19 @@ h4 {
 
 footer {
     background-color: #300458;
-    color: white;
+    color: #fff;
     text-align: center;
-    bottom: 0;
     position: fixed;
+    bottom: 0;
     width: 100%;
-    height: 10%;
-    padding-bottom: 1%;
+    height: 60px;
+    padding: 10px 20px 0px 20px;
+    font-size: 12px;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
 }

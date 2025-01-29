@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+html, body {
+    overflow-x: hidden; /* Evitar desplazamiento horizontal */
+    width: 100%; /* Asegurar que el body ocupe todo el ancho disponible */
+}
+
 @font-face {
     font-family: 'Eagle_Lake';
     src: url('fonts/EagleLake-Regular.ttf') format('truetype');
@@ -30,7 +35,7 @@ body {
 }
 
 header {
-    position: sticky;
+    position: fixed;
     top:0;
     height: 12vh;
     width: 100%;
@@ -49,7 +54,6 @@ header {
     padding: 1rem 2rem 1rem 2rem;
     align-items: center;
 }
-
 
 .user-icon {
     width: auto;
@@ -109,7 +113,7 @@ footer {
     margin-right: 20px;
     display: inline-block;
     line-height: 1.5;
-    width: calc(100% - 40px); /* Especifica el ancho de los títulos de cada sección */
+    width: calc(100% - 2cm); /* Especifica el ancho de los títulos de cada sección */
     max-width: none;
 }
 
@@ -126,11 +130,11 @@ footer {
 
 /* Carruseles */
 .carousel-container {
-    width: calc(100% - 40px); /* Igual que el tamaño del título de la sección */
+    width: calc(100% - 2cm); /* Igual que el tamaño del título de la sección */
     overflow-x: auto;
     padding: 0 20px; /* Padding a 0 para evitar márgenes extra */
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 10px;
     box-sizing: border-box; /* Así el padding se mantiene dentro del contenedor */
     overflow-y: hidden;
