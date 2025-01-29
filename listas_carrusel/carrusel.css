@@ -17,38 +17,46 @@ body {
     padding: 0;
     font-family: 'Eagle_Lake', Arial, sans-serif;
     color: #fff;
-    font-style: italic;
     background-image: url('images/fondo.png');
     background-position: top center; /* La imagen empieza desde la parte superior, centrada */
     background-repeat: repeat-y; /* Se repite solo verticalmente */
     background-size: auto; /* Mantiene el tamaño original de la imagen */
     min-height: 100%; /* Asegura que el contenido ocupe todo el alto */
     overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    overflow: auto;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: sticky;
+    top:0;
+    height: 12vh;
     width: 100%;
     background-color: #300458;
     color: #fff;
-    padding: 25px 20px;
     z-index: 1000;
 }
 
 .header-content {
+    background-color: #300458;
+    height: 12vh;
+    width:100%;
+    justify-content: space-between;
+    box-sizing: border-box;
     display: flex;
+    padding: 1rem 2rem 1rem 2rem;
     align-items: center;
 }
 
+
 .user-icon {
-    width: 80px;
-    height: 80px;
+    width: auto;
+    height: 3.5em;
     border-radius: 50%;
-    margin-left: 20px;
-    margin-right: 2cm;
-    border: 3px solid #5f52aa;
+    align-self: center;
+    border: 0.2rem solid #5f52aa;
     transition: all 0.3s ease;
 }
 
@@ -62,7 +70,6 @@ header a {
 }
 
 header h1 {
-    font-size: 48px;
     margin: 0;
     color: white;
     transition: color 0.3s ease, transform 0.3s ease;

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookTrack</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="image.png">
+    <link rel="stylesheet" href="profile.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
+        </style>
+</head>
+<body aria-label="Body" class = "layout">
+    <header class = "header"><img class="logo" src="book2.png"><h1 class = cont-header>BookTrack</h1><div></div></header>
+    <main>
+        <div class="cont-main">
+            <div class="text">
+                <h2>Edit your profile</h2>
+                <form action="action_page.php" method="get" class = "form">
+                    <div class="columns">
+                    <div class="column" id="column1">
+                        <label for="email"><b>Username</b></label>
+                        <div class="input">
+                        <input type="text" placeholder="Enter your username" name="email" required></div>
+                        <div class="input">
+                            <label for="img"><b>Choose an image for your avatar</b></label>
+                            <input class ="image" type="file" placeholder="Enter Image" name="img" accept="image/*" ></div>
+                    </div>
+                    <div class="column">
+                        <label for="psw"><b>Old Password</b></label>
+                        <div class="input">
+                        <input type="password" placeholder="Enter your old password" name="psw" required></div>
+                        <label for="psw-repeat"><b>New Password</b></label>
+                        <div class="input">
+                        <input type="password" placeholder="Enter your new password" name="psw-new" required></div>
+                        <label for="psw-repeat"><b>Repeat Password</b></label>
+                        <div class="input">
+                        <input type="password" placeholder="Repeat your new password" name="psw-repeat" required></div>
+                    </div>
+                </div>
+                    <div class="clearfix">
+                            <button type="submit" class="savebtn">Save changes</button>
+                    </div>
+                    <div class="cancel">
+                            <button type="button" class="cancelbtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="cont-footer"><adress>Contacto: contacto@booktrack.com | Teléfono: +34 123 456 789<br>• 2024 BookTrack. Todos los derechos reservados.</adress></div></footer>
+</body>
+</html>
