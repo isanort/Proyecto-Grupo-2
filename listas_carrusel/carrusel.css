@@ -6,7 +6,7 @@
 }
 
 html, body {
-    overflow-x: hidden; /* Evitar desplazamiento horizontal */
+ /* Evitar desplazamiento horizontal */
     width: 100%; /* Asegurar que el body ocupe todo el ancho disponible */
 }
 
@@ -17,9 +17,16 @@ html, body {
     font-style: normal;
 }
 
-body {
-    margin: 0;
-    padding: 0;
+body{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    overflow: auto;
+    font-family: 'Eagle_Lake', Arial, sans-serif;
+}
+
+main {
+    padding-top: 10px;
     font-family: 'Eagle_Lake', Arial, sans-serif;
     color: #fff;
     background-image: url('images/fondo.png');
@@ -35,7 +42,8 @@ body {
 }
 
 header {
-    position: fixed;
+    position: sticky;
+    font-family: 'Eagle_Lake', Arial, sans-serif;
     top:0;
     height: 12vh;
     width: 100%;
@@ -99,7 +107,7 @@ footer {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    margin: 180px 20px 10px 20px;
+    justify-items: center;
 }
 
 .titulo {
@@ -132,9 +140,9 @@ footer {
 .carousel-container {
     width: calc(100% - 2cm); /* Igual que el tamaño del título de la sección */
     overflow-x: auto;
-    padding: 0 20px; /* Padding a 0 para evitar márgenes extra */
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 0 0px; /* Padding a 0 para evitar márgenes extra */
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 10px;
     box-sizing: border-box; /* Así el padding se mantiene dentro del contenedor */
     overflow-y: hidden;
@@ -149,7 +157,7 @@ footer {
 }
 
 .carousel-item {
-    width: 200px;
+    width: 100px;
     height: auto;
     scroll-snap-align: start;
     transition: transform 0.3s ease;
@@ -176,5 +184,5 @@ footer {
 
 /* Separación entre el último carrousel y el footer */
 .carousel-container:last-child {
-    margin-bottom: 130px;
+    margin-bottom: 10px;
 }
