@@ -1,0 +1,179 @@
+html, body {
+    margin:0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+}
+
+.eagle-lake-regular {
+    font-family: "Eagle Lake", serif;
+    font-weight: 400;
+    font-style: normal;
+}  
+
+body {
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid:
+    "header" 20%
+    "main" 1fr
+    "footer" 10%
+    / 1fr;
+    place-content: center;
+    font-family: "Eagle Lake", serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #300458;
+    color: #fff;
+    padding: 25px 20px;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: auto;
+    height: 3.5em;
+    border-radius: 50%;
+    align-self: center;
+    border: 0.2rem solid #5f52aa;
+    transition: all 0.3s ease;
+}
+
+.user-icon:hover {
+    background-color: #a49bda;
+    transform: scale(1.1);
+}
+
+header a {
+    text-decoration: none;
+}
+
+header h1 {
+    font-size: 48px;
+    margin: 0;
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    transform-origin: center;
+}
+
+header h1:hover {
+    color: #a49bda;
+    transform: scale(1.1);
+}
+
+main {
+    grid-area: main;
+    background-image: url("purple.png");
+    background-size: cover;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cont-main {
+    background-color:  #300458;
+    box-sizing: border-box;
+    border: white 0.2em solid;
+    padding: 0 1rem 1rem 1rem;
+    border-radius: 5%;
+    color: white;
+    min-width: 35%;
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    background-color:  #300458;
+}
+
+input {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    border: 0.1em white solid;
+    border-radius: 0.5rem;
+}
+
+.input {
+    margin-right: 1em;
+}
+
+a {
+    color: rgb(0, 187, 255)
+}
+
+.checkbox {
+    background-color: blue;
+    margin-right: 0;
+    width: 5%;
+    color: white;
+}
+
+.terms {
+    font-size: 0.9em;
+}
+
+.clearfix {
+    background-color:  #300458;
+    display:flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    margin-top: 0.5em;
+}
+
+button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.1em;
+    color: white;
+    background-color: plum;
+    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+    border: white 0.2rem solid;
+    border-radius: 1rem;
+    font-family: "Eagle Lake", serif;;
+}
+
+button:hover{
+    background-color: #a49bda;
+}
+
+.cancel {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cancelbtn {
+    font-size: 0.8em;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #300458;
+    color: white;
+    font-size: 0.8em;
+}
+.cont-footer {
+    background-color: #300458;
+    padding: 1rem;
+    text-align: center;
+}
