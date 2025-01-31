@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookTrack</title>
+    <link rel="stylesheet" href="nueva-lista.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
+        </style>
+</head>
+<body aria-label="Body" class = "layout">
+    <header class = "header">
+        <h1>BookTrack</h1>
+         </button>
+            </a>
+                        <!-- Enlace al perfil (página futura) -->
+            <button>
+                        <a href="perfil.html">
+                <img src="images/user.png" alt="User Icon" class="user-icon">
+            </a>
+        </button>
+    </header>
+    <main>        
+        <div class="cont-main">
+            <div class="text">
+                <h2>Create a new list</h2>
+                <form action="action_page.php" method="get" class = "form">
+                    <label for="name"><b>Name</b></label></br>
+                    <div class="input">
+                    <input type="name" placeholder="E.g.: Rainy days, Romance..." name="Name" required></br></div>
+                    <label for="description"><b>Description</b></label></br>
+                    <div class="input">
+                    <input type="description" placeholder="E.g.: This is a compilation of YA novels from 2010 to 2020." name="description" required></br></div>
+                    <br>
+                    <div class="clearfix">
+                        <button type="submit" class="loginbtnbtn">Save</button>
+                    </div>
+                    <div class="cancel">
+                        <button type="button" class="cancelbtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
