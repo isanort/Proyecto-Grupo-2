@@ -25,22 +25,6 @@ body{
     font-family: 'Eagle_Lake', Arial, sans-serif;
 }
 
-main {
-    padding-top: 10px;
-    font-family: 'Eagle_Lake', Arial, sans-serif;
-    color: #fff;
-    background-image: url('images/fondo.png');
-    background-position: top center; /* La imagen empieza desde la parte superior, centrada */
-    background-repeat: repeat-y; /* Se repite solo verticalmente */
-    background-size: auto; /* Mantiene el tamaño original de la imagen */
-    min-height: 100%; /* Asegura que el contenido ocupe todo el alto */
-    overflow-x: hidden; /* Evita el desbordamiento horizontal */
-    display: grid;
-    grid-template-rows: auto 1fr;
-    min-height: 100vh;
-    overflow: auto;
-}
-
 header {
     position: sticky;
     font-family: 'Eagle_Lake', Arial, sans-serif;
@@ -85,12 +69,54 @@ header h1 {
     margin: 0;
     color: white;
     transition: color 0.3s ease, transform 0.3s ease;
+    font-family: 'Eagle_Lake', Arial, sans-serif;
 }
 
 header h1:hover {
     color: #a49bda;
     transform: scale(1.1);
 }
+
+main {
+    padding-top: 10px;
+    font-family: 'Eagle_Lake', Arial, sans-serif;
+    color: #fff;
+    background-image: url('images/fondo.png');
+    background-position: top center; /* La imagen empieza desde la parte superior, centrada */
+    background-repeat: repeat-y; /* Se repite solo verticalmente */
+    background-size: auto; /* Mantiene el tamaño original de la imagen */
+    min-height: 100%; /* Asegura que el contenido ocupe todo el alto */
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+}
+
+.myLists h1{
+    align-self: center;
+    background-color: #a49bda;
+    margin: 1rem;
+    margin-top: -1rem;
+}
+
+.return {
+    width: 2.5em;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+
+}
+
+.return:hover {
+    opacity: 0.5;
+}
+
 
 footer {
     background-color: #300458;
@@ -161,6 +187,7 @@ footer {
     height: auto;
     scroll-snap-align: start;
     transition: transform 0.3s ease;
+    padding: 0.4rem 0.2rem 0.4rem 0.2rem;
 }
 
 .carousel-item:hover {
