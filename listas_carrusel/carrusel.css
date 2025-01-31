@@ -7,7 +7,7 @@
 
 html, body {
  /* Evitar desplazamiento horizontal */
-    width: 100%;
+    width: 100%; /* Asegurar que el body ocupe todo el ancho disponible */
 }
 
 @font-face {
@@ -78,7 +78,6 @@ header h1:hover {
 }
 
 main {
-    padding-top: 10px;
     font-family: 'Eagle_Lake', Arial, sans-serif;
     color: #fff;
     background-image: url('images/fondo.png');
@@ -99,56 +98,83 @@ button {
 }
 
 .myLists h1{
-    align-self: center;
+    justify-self: center;
     background-color: #a49bda;
-    margin: 1rem;
-    margin-top: -1rem;
+    height: 100%;
+    padding: 0rem 1rem 0rem 1rem;
+    border-radius: 1em;
+}
+.myLists{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .return {
-    width: 2.5em;
+    width: 3.5em;
     position: absolute;
-    top: 15%;
+    top: 14%;
     left: 5%;
-
+    padding: 0;
+    border-radius: 50%;
+    border: 0.1rem solid #ccc;
 }
 
 .return:hover {
     opacity: 0.5;
 }
 
+.newlist {
+    width: 10em;
+    height: 2em;
+    vertical-align: middle;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    background-color: white;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 1em;
+}
 
-footer {
-    background-color: #300458;
-    color: #fff;
-    padding: 20px 25px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 12px;
+a {
+    text-decoration: none;
+}
+.newlist:hover {
+    opacity: 0.5;
+    text-decoration: underline;
 }
 
 .layout {
-    width: 100%;
+    width: 100dw;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 85%;
+    gap:0px;
+    box-sizing: border-box;
+    background-color: #a49bda00;
     justify-items: center;
+    align-items: center;
+    height: 100%;
+    border-bottom: 0.1rem white solid;
+    margin-right: 2rem;
+    margin-left: 2rem;
 }
 
 .titulo {
     background-color: #300458;
     color: white;
-    padding: 15px 8px;
     text-align: center;
-    margin-top: 0cm; /* Separación entre el fondo y el header */
-    margin-bottom: 10px; /* Espacio entre el título y el carrousel */
-    margin-left: 20px;
-    margin-right: 20px;
-    display: inline-block;
-    line-height: 1.5;
-    width: calc(100% - 2cm); /* Especifica el ancho de los títulos de cada sección */
-    max-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%; /* Especifica el ancho de los títulos de cada sección */
+    font-size: 0.8em;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+    
 }
 
 .titulo a {
@@ -162,23 +188,23 @@ footer {
     color: #a49bda;
 }
 
+/* Carruseles */
 .carousel-container {
     width: calc(100% - 2cm); /* Igual que el tamaño del título de la sección */
     overflow-x: auto;
-    padding: 0 0px; /* Padding a 0 para evitar márgenes extra */
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
     box-sizing: border-box; /* Así el padding se mantiene dentro del contenedor */
     overflow-y: hidden;
+
 }
 
 .carousel-items {
     display: flex;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    gap: 10px;
     width: fit-content;
+    background-color: rgba(0, 255, 255, 0);
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
 }
 
 .carousel-item {
@@ -209,6 +235,7 @@ footer {
 }
 
 /* Separación entre el último carrousel y el footer */
-.carousel-container:last-child {
-    margin-bottom: 10px;
+main:last-child {
+    padding-bottom: 3rem;
+    border-bottom: 0rem rgba(255, 255, 255, 0) solid;
 }
