@@ -73,13 +73,7 @@ header h1:hover {
     transform: scale(1.1);
 }
 
-.return {
-    width: 2.5em;
-    position: absolute;
-    top: 15%;
-    left: 5%;
 
-}
 
 
 .return:hover {
@@ -90,7 +84,34 @@ main {
     background-color: #7f1fda;
     color: white;
     font-family: 'Eagle Lake', serif;
+    padding: 0rem;
+    display: grid;
+    grid-template-rows:auto 1fr;
+}
+
+.cont-main {
+    min-height: 100%;
     padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cont-main h1 {
+    justify-self: center;
+    background-color: #a49bda;
+    height: 100%;
+    padding: 0rem 1rem 0rem 1rem;
+    border-radius: 1em;
+}
+.return {
+    width: 3.5em;
+    position: absolute;
+    top: 14%;
+    left: 5%;
+    padding: 0;
+    border-radius: 50%;
+    border: 0.1rem solid #ccc;
 }
 
 section {
