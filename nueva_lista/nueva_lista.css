@@ -1,5 +1,5 @@
 html, body {
-    margin:0;
+    margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 100%;
@@ -17,10 +17,14 @@ body {
     grid:
     "header" 20%
     "main" 1fr
-    "footer" 10%
     / 1fr;
     place-content: center;
     font-family: "Eagle Lake", serif;
+    height: 100vh;
+    background-image: url("images/libro.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 header {
@@ -28,42 +32,60 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    height: 33px;
     background-color: #300458;
     color: #fff;
     padding: 25px 20px;
     z-index: 1000;
-}
-
-.header-content {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-.user-icon {
-    width: auto;
-    height: 3.5em;
-    border-radius: 50%;
-    align-self: center;
-    border: 0.2rem solid #5f52aa;
-    transition: all 0.3s ease;
-}
-
-.user-icon:hover {
-    background-color: #a49bda;
-    transform: scale(1.1);
-}
-
-header a {
-    text-decoration: none;
-}
-
 header h1 {
-    font-size: 48px;
+    font-size: 33.4px;
     margin: 0;
     color: white;
     transition: color 0.3s ease, transform 0.3s ease;
     display: inline-block;
     transform-origin: center;
+    padding: 1rem 0.7rem 1rem 0.7rem;
+}
+
+.user-icon {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    border: 3.3px solid #5f52aa;
+    margin-left: 20px;
+    margin-right: 1.5cm;
+    margin-top: calc(2mm - 1mm);
+    transition: all 0.3s ease;
+    object-fit: cover;
+    position: relative;
+    left: 1mm;
+    top: -1;
+}
+
+.user-icon:hover {
+    background-color: #a49bda;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: transparent;
+}
+
+header a {
+    text-decoration: none;
 }
 
 header h1:hover {
@@ -73,20 +95,20 @@ header h1:hover {
 
 main {
     grid-area: main;
-    background-image: url("purple.png");
-    background-size: cover;
-    width: 100%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     place-items: center;
     justify-content: center;
     align-items: center;
-
+    width: 100%;
+    position: relative;
+    top: -1cm;
+    z-index: 999;
 }
 
 .cont-main {
-    background-color:  #300458;
+    background-color: #300458;
     box-sizing: border-box;
     border: white 0.2em solid;
     padding: 0 1rem 1rem 1rem;
@@ -100,7 +122,7 @@ h2 {
 }
 
 label {
-    background-color:  #300458;
+    background-color: #300458;
 }
 
 input {
@@ -118,7 +140,7 @@ input {
 }
 
 a {
-    color: rgb(0, 187, 255)
+    color: rgb(0, 187, 255);
 }
 
 .checkbox {
@@ -133,14 +155,14 @@ a {
 }
 
 .clearfix {
-    background-color:  #300458;
-    display:flex;
+    background-color: #300458;
+    display: flex;
     flex-direction: column-reverse;
     justify-content: space-around;
     margin-top: 0.5em;
 }
 
-button{
+button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.1em;
     color: white;
@@ -148,10 +170,10 @@ button{
     padding: 0.3rem 0.6rem 0.3rem 0.6rem;
     border: white 0.2rem solid;
     border-radius: 1rem;
-    font-family: "Eagle Lake", serif;;
+    font-family: "Eagle Lake", serif;
 }
 
-button:hover{
+button:hover {
     background-color: #a49bda;
 }
 
@@ -164,16 +186,4 @@ button:hover{
 
 .cancelbtn {
     font-size: 0.8em;
-}
-
-footer {
-    grid-area: footer;
-    background-color: #300458;
-    color: white;
-    font-size: 0.8em;
-}
-.cont-footer {
-    background-color: #300458;
-    padding: 1rem;
-    text-align: center;
 }
