@@ -37,7 +37,7 @@ header {
     align-items: center;
 }
 
-button {
+header button {
     background-color: rgba(255, 255, 255, 0) ;
     border-style: none;
 }
@@ -74,78 +74,23 @@ header h1:hover {
     transform: scale(1.1);
 }
 
-
 main {
-    background-color: #7f1fda;
     color: white;
     font-family: 'Eagle Lake', serif;
     width: 100dvw;
 }
 
 .main-content {
-    background-image: url("./fondo.png");
+    background-image: url("./images/libro.jpeg");
     background-size: cover;
     background-position: center;
     height: 100%;
     display:flex;
     justify-content: center;
-}
-
-
-.gallery {
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+    align-items: center;
     width: 100%;
 }
 
-
-.row1 img{
-    width: 200px; /* Escala relativa al contenedor */
-    height: 200px;
-    border: 5px solid #ccc; /* Unidades absolutas */
-    border-radius: 8px; /* Unidades absolutas */
-    border-color: #5f52aa;
-    transition: transform 0.3s ease; /* Animación suave */
-}
-
-.row2 img {
-    width: 100px; /* Escala relativa al contenedor */
-    height: 100px;
-    border: 5px solid #ccc; /* Unidades absolutas */
-    border-radius: 100px; /* Unidades absolutas */
-    border-color: #5f52aa;
-    transition: transform 0.3s ease; /* Animación suave */
-}
-
-.row1 img:hover {
-    transform: scale(1.1); /* Efecto relativo */
-    border-color: #a49bda; /* Cambiar color del borde */
-}
-
-.row2 img:hover {
-    transform: scale(1.1); /* Efecto relativo */
-    border-color: #a49bda; /* Cambiar color del borde */
-}
-
-.row1, .row2 {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-footer {
-    background-color: #300458;
-    color: white;
-    height: 8vh;
-    font-size: 0.7em;
-}
-
-.footer-content {
-    margin: 1rem;
-    text-align: center;
-}
 
 
 @media (max-width: 760px) {
@@ -168,4 +113,86 @@ footer {
     .gallery {
       gap: 1rem; /* Reducir espacio entre imágenes */
     }
+}
+
+
+.container {
+    width: 70%;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "menu content"
+        "icon footer";
+    grid-template-columns: 1fr 4fr;
+    gap: 0.5rem;
+    border: 0.5em #5F52AA solid;
+    border-radius: 1em;;
+    background-color: #5F52AA;
+
+}
+
+.container > div{
+    background: #300458;;
+    padding: 1rem;
+}
+
+
+.container > div.titulo {
+    grid-area: header;
+    text-align: center;
+}
+    
+.container > div.portada {
+    grid-area: menu;
+    padding: 1rem
+}
+
+.portada img {
+    height: 300px;
+    vertical-align: middle;
+}
+    
+.container > div.content {
+    grid-area: content;
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+}
+
+h3 {
+    display: block;
+}
+p {
+    display: block;
+}
+
+.container > div.icons{
+    grid-area: icon;
+    padding: 0.2rem;
+}
+
+.icons img {
+    height: 4em;
+    justify-content: space-around;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-color: #300458;
+    border:0.1rem #5f52aa solid;
+}
+.icons img:hover  {
+    opacity: 50%;
+}
+
+.container > div.lists{
+    grid-area: footer;
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+}
+
+button {
+    border: none;
+    background-color: #300458;
 }
