@@ -1,48 +1,68 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-*  .eagle-lake-regular {
-    font-family: "Eagle Lake", serif;
-    font-weight: 400;
-    font-style: normal;
+html, body {
+    margin:0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+    text-align:center;
 }
 
 body {
-    margin: 0;
+    display: grid;
     font-family: "Eagle Lake", serif;
-    font-weight: 400;
-    font-style: normal;
-    background-color: #300458;
-    background-image: url("./libro.jpeg");
-    background-repeat: no-repeat;
-    background-size: 100% 150%;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    overflow: auto;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: sticky;
+    top:0;
     height: 12vh;
-    width: 100%;
-    background-color: #300458;
-    color: #fff;
-    z-index: 1000;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .header-content {
-    display: flex;
+    background-color: #300458;
+    height: 12vh;
+    width:100%;
     justify-content: space-between;
+    box-sizing: border-box;
+    display: flex;
+    padding: 1rem 2rem 1rem 2rem;
     align-items: center;
-    width: 100%;
-    padding: 0 2rem; /* Padding solo en los lados */
+}
+
+header button {
+    background-color: rgba(255, 255, 255, 0) ;
+    border-style: none;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header h1{
+    color: white;
+    font-size: 2.5em;
+    font-family: 'Eagle Lake', serif;
+    margin: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header h1:hover {
+    color: #a49bda;
+    transform: scale(1.1);
+
 }
 
 .user-icon {
     width: auto;
-    height: 3.1em;
+    height: 4em;
     border-radius: 50%;
     align-self: center;
     border: 0.2rem solid #5f52aa;
@@ -54,94 +74,126 @@ header {
     transform: scale(1.1);
 }
 
-h1 {
-    margin: 0;
+main {
     color: white;
+    font-family: 'Eagle Lake', serif;
+    width: 100dvw;
 }
 
+.main-content {
+    background-image: url("./images/libro.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+@media (max-width: 760px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    .header-content {
+        height: 10vh;
+    }
+    .header {
+        height: 10vh;
+    }
+}
+
+  /* Diseño responsivo */
+@media (max-width: 768px) {
+    .gallery-title {
+      font-size: 1.5rem; /* Texto más pequeño en pantallas pequeñas */
+    }
+    .gallery {
+      gap: 1rem; /* Reducir espacio entre imágenes */
+    }
+}
+
+
 .container {
+    width: 70%;
     display: grid;
     grid-template-areas:
         "header header"
         "menu content"
-        "footer footer";
-    grid-template-columns: 1fr 5fr;
-    gap: 5px;
+        "icon footer";
+    grid-template-columns: 1fr 4fr;
+    gap: 0.5rem;
+    border: 0.5em #5F52AA solid;
+    border-radius: 1em;;
     background-color: #5F52AA;
-    padding: 5px;
-    padding-top: 5px;
-    margin-bottom: 40px;
+
 }
 
-header a {
-    text-decoration: none;
+.container > div{
+    background: #300458;;
+    padding: 1rem;
+    border-radius: 1em;
 }
 
-header h1 {
-    margin: 0;
-    color: white;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
 
-header h1:hover {
-    color: #a49bda;
-    transform: scale(1.1);
-}
-
-.layout {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: 180px 20px 10px 20px;
-}
-
-.titulo {
-    background-color: #300458;
-    color: white;
-    padding: 15px 8px;
+.container > div.titulo {
+    grid-area: header;
     text-align: center;
-    margin-top: 0cm;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    display: inline-block;
-    line-height: 1.5;
-    width: calc(100% - 40px);
-    max-width: none;
 }
-
-.titulo a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-.titulo a:hover {
-    text-decoration: underline;
-    color: #a49bda;
-}
-
-h2 {
-    color: white;
-}
-
-.portada {
-object-fit: contain;
+    
+.container > div.portada {
+    grid-area: menu;
+    padding: 1rem
 }
 
 .portada img {
-    height: 400px;
-    width: 300px;
+    height: 300px;
+    vertical-align: middle;
+}
+    
+.container > div.content {
+    grid-area: content;
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
 }
 
-h3{
-    color: white;
+h3 {
+    display: block;
 }
-
 p {
-    color: white;
+    display: block;
 }
 
-h4 {
-    color: white;
+.container > div.icons{
+    grid-area: icon;
+    padding: 0.2rem;
+}
+
+.icons img {
+    height: 4em;
+    justify-content: space-around;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-color: #300458;
+    border:0.1rem #5f52aa solid;
+}
+.icons img:hover  {
+    opacity: 50%;
+}
+
+.container > div.lists{
+    grid-area: footer;
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+}
+
+button {
+    border: none;
+    background-color: #300458;
 }
