@@ -73,6 +73,32 @@ header h1:hover {
     transform: scale(1.1);
 }
 
+option {
+    background-color: rgb(222, 25, 25);
+}
+.image-dropdown{
+    appearance: none;
+    background-image: url("images/user.png");
+    background-size: contain;
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+    align-self: center;
+    border: 0.2rem solid #5f52aa;
+}
+.profilebtn {
+    display: grid;
+    background-color: aqua;
+}
+
+.content, .overlay {
+    grid-area: 1/1;
+}
+.hidden-button a{
+    color: white;
+    position: relative;
+}
+
 .return:hover {
     opacity: 0.5;
 }
@@ -103,25 +129,31 @@ main h1 {
 main .button {
     background-color: white;
     border-radius: 1em;
-    height: 2em;
-    width: 9em;
     border:#a49bda solid 0.1rem;
 }
 main button {
-    margin: 0rem 1rem 0rem 1rem;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
-main a {
+.button a {
     text-decoration: none;
-    color:#300458
+    color:#300458;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 255, 255, 0);
+    margin: 0.5rem;
+    height: 10%;
+    font-family: 'Eagle Lake', serif;
 }
 
 .main-header p{
     color:#300458
 }
-main a:hover {
-    display: block;
-    color: #fff;
-}
+
 main .button:hover{
     opacity: 50%;
 }
@@ -130,19 +162,17 @@ main .button:hover{
     background-color: rgba(127, 255, 212, 0);
     width: 100%;
     display:grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-gap: 0;
-    padding:  1rem 2rem 1rem 2rem;
 }
 
-.options {
-    grid-column: span 2;
+.main-header .buttonsop {
     background-color: rgba(245, 245, 220, 0);
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 
 }
 .info {
@@ -153,7 +183,7 @@ main .button:hover{
     align-items: center;
     background-color: #a49bda;
     padding: 0.5rem;
-    margin: 0rem 1rem 0rem 1rem;
+    margin: 1rem 1rem 1rem 1rem;
     border-radius: 1em;
 }
 

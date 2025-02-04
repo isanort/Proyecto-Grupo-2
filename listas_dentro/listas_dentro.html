@@ -18,33 +18,41 @@
             <button>
             <a href="../home/home.html">
                 <h1>BookTrack</h1>
+            </a>
             </button>
-            </a>
                         <!-- Enlace al perfil (página futura) -->
-            <button>
-                        <a href="perfil.html">
-                <img src="images/user.png" alt="User Icon" class="user-icon">
-            </a>
-        </button>
+            <select required onChange ="window.location.href=this.value" class = image-dropdown>
+                <option value="" selected disabled></option>
+                <option value="perfil.html" data-image="images/user.png" class="usericon">Profile</option>
+                <option value="perfil.html">
+                    Cerrar sesión
+                    </option>
+            </select>
+            </div>
         </div>
     </header>
     <main>
         <div class="cont-main">
             <div class="main-header">
-                <div class="options">
-                    <button>
+                
+                    <div class="buttonsop">
+                        <button>
                         <a href="../listas_carrusel/carrusel.html">
                         <img class ="return" src="../listas_dentro/images/back.png" alt="Return icon">
                         </a>
                     </button>
-                    <button class ="button add">
-                        <a href="../home/home.html">
-                        <p>Add books</p>
-                        </a>
-                    </button>
+                    </div>
+                    <div class="buttonsop">
                     <button class ="button">
                         <a href="../home/home.html">
-                        <p>Edit name</p>
+                        Add books
+                        </a>
+                    </button>
+                </div>
+                    <div class="buttonsop">
+                    <button class ="button">
+                        <a href="../home/home.html">
+                        Edit name
                         </a>
                     </button>
                 </div>
