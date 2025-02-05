@@ -132,7 +132,7 @@ main {
 }
 
 .container > div{
-    background: #300458;;
+    background-color: #300458;
     padding: 1rem;
     border-radius: 1em;
 }
@@ -145,19 +145,31 @@ main {
     
 .container > div.portada {
     grid-area: menu;
-    padding: 1rem
+    padding: 1rem;
 }
 
 .portada img {
     height: 300px;
     vertical-align: middle;
 }
-    
-.container > div.content {
+.container > div.maincontent {
     grid-area: content;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background-color: #300458;
+}
+
+.content {
     text-align: left;
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+}
+
+.content2{
+    text-align: left;
+    display: inline-flex;
+    justify-content: space-around;
     gap: 1rem;
 }
 
