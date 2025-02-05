@@ -94,9 +94,9 @@ main {
 
 .gallery {
     align-self: center;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+    display: grid;
+    grid-template-rows: 2 1fr;
+    gap: 4em;
     width: 100%;
 }
 
