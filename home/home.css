@@ -108,6 +108,7 @@ main {
     border-radius: 8px; /* Unidades absolutas */
     border-color: #5f52aa;
     transition: transform 0.3s ease; /* Animación suave */
+    margin-bottom: 25px;
 }
 
 .row2 img {
