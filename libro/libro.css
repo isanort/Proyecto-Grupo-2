@@ -162,7 +162,7 @@ main {
 .content {
     text-align: left;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 4fr;
     gap: 1rem;
 }
 

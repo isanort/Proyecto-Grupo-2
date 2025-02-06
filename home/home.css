@@ -100,8 +100,67 @@ main {
     width: 100%;
 }
 
+.image1{
+    background-image: url("../images/search.png");
+    background-size: contain;
+}
 
-.row1 img{
+.image1:hover{
+    background-image: url("../images/searchwithtext.png");
+    background-size: contain;
+}
+
+.image2 {
+    background-image: url("../images/libreria.png");
+    background-size: contain;
+}
+
+.image2:hover {
+    background-image: url("../images/listswithtext.png");
+    background-size: contain;
+}
+
+.image3 {
+    background-image: url("../images/favsbookmark.png");
+    background-size: contain;
+}
+
+.image3:hover {
+    background-image: url("../images/favoriteswithtext.png");
+    background-size: contain;
+}
+
+.image4 {
+background-image: url("../images/recents.png");
+background-size: contain;
+}
+
+.image4:hover{
+    background-image: url("../images/recentswithtext.png");
+    background-size: contain;
+}
+
+.image5 {
+    background-image: url("../images/add.png");
+    background-size: contain;
+}
+
+.image5:hover {
+    background-image: url("../images/addwithtext.png");
+    background-size: contain;
+}
+
+.image6 {
+    background-image: url("../images/random.png");
+    background-size: contain;
+}
+
+.image6:hover {
+    background-image: url("../images/randomwithtext.png");
+    background-size: contain;
+}
+
+.row1 button{
     width: 200px; /* Escala relativa al contenedor */
     height: 200px;
     border: 5px solid #ccc; /* Unidades absolutas */
@@ -109,9 +168,12 @@ main {
     border-color: #5f52aa;
     transition: transform 0.3s ease; /* Animación suave */
     margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0);
+    font-family: "Eagle Lake", serif;
+    font-size: 2em;
 }
 
-.row2 img {
+.row2 button {
     width: 100px; /* Escala relativa al contenedor */
     height: 100px;
     border: 5px solid #ccc; /* Unidades absolutas */
@@ -120,12 +182,12 @@ main {
     transition: transform 0.3s ease; /* Animación suave */
 }
 
-.row1 img:hover {
+.row1 button:hover {
     transform: scale(1.1); /* Efecto relativo */
     border-color: #a49bda; /* Cambiar color del borde */
 }
 
-.row2 img:hover {
+.row2 button:hover {
     transform: scale(1.1); /* Efecto relativo */
     border-color: #a49bda; /* Cambiar color del borde */
 }
