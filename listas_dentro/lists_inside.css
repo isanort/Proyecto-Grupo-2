@@ -104,7 +104,7 @@ option {
 }
 
 main {
-    background-color: #7f1fda;
+    background-color: #a49bda;
     color: white;
     font-family: 'Eagle Lake', serif;
     padding: 0rem;
@@ -122,7 +122,6 @@ main {
 
 main h1 {
     justify-self: center;
-    background-color: #a49bda;
     padding: 0rem 1rem 0rem 1rem;
     border-radius: 1em;
 }
@@ -181,7 +180,7 @@ main .button:hover{
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    background-color: #a49bda;
+    background-color: #4d1384;
     padding: 0.5rem;
     margin: 1rem 1rem 1rem 1rem;
     border-radius: 1em;
@@ -236,6 +235,25 @@ section div img:hover {
     font-size: 16px;
     margin-top: 3px;
     text-align: center;
+}
+
+.icons {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.icons img {
+    height: 4em;
+
+    vertical-align: middle;
+    border-radius: 50%;
+    background-color: #300458;
+    border:0.1rem #5f52aa solid;
+}
+
+.icons img:hover  {
+    opacity: 50%;
 }
 
 @media (max-width: 760px) {

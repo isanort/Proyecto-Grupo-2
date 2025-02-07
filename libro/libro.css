@@ -81,7 +81,7 @@ main {
 }
 
 .main-content {
-    background-image: url("./images/libro.jpeg");
+    background-image: url("./images/fondo.png");
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -117,7 +117,9 @@ main {
 
 
 .container {
-    width: 70%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 90%;
     display: grid;
     grid-template-areas:
         "header header"
@@ -183,6 +185,13 @@ p {
 .container > div.icons{
     grid-area: icon;
     padding: 0.2rem;
+}
+
+.icons {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .icons img {
