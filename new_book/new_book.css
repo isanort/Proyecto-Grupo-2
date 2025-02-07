@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin:0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+    text-align:center;
+}
+
+body {
+    display: grid;
+    font-family: "Eagle Lake", serif;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+header {
+    position: sticky;
+    top:0;
+    height: 12vh;
+}
+
+.header-content {
+    background-color: #300458;
+    height: 12vh;
+    width:100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    display: flex;
+    padding: 1rem 2rem 1rem 2rem;
+    align-items: center;
+}
+
+header button {
+    background-color: rgba(255, 255, 255, 0) ;
+    border-style: none;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header h1{
+    color: white;
+    font-size: 2.5em;
+    font-family: 'Eagle Lake', serif;
+    margin: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header h1:hover {
+    color: #a49bda;
+    transform: scale(1.1);
+
+}
+
+
+
+.user-icon {
+    width: auto;
+    height: 4em;
+    border-radius: 50%;
+    align-self: center;
+    border: 0.2rem solid #5f52aa;
+    transition: all 0.3s ease;
+}
+
+.user-icon:hover {
+    background-color: #a49bda;
+    transform: scale(1.1);
+}
+
+main {
+    color: white;
+    font-family: 'Eagle Lake', serif;
+    width: 100dvw;
+}
+
+.main-content {
+    background-image: url("./images/fondo.png");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+@media (max-width: 760px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    .header-content {
+        height: 10vh;
+    }
+    .header {
+        height: 10vh;
+    }
+}
+
+  /* Diseño responsivo */
+@media (max-width: 768px) {
+    .gallery-title {
+      font-size: 1.5rem; /* Texto más pequeño en pantallas pequeñas */
+    }
+    .gallery {
+      gap: 1rem; /* Reducir espacio entre imágenes */
+    }
+}
+
+
+.container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 60%;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "menu content"
+        "icon footer";
+    grid-template-columns: 2fr 4fr;
+    gap: 0.5rem;
+    border: 0.5em #5F52AA solid;
+    border-radius: 1em;;
+    background-color: #5F52AA;
+
+}
+
+.container > div{
+    background-color: #300458;
+    padding: 1rem;
+    border-radius: 1em;
+}
+
+
+.container > div.titulo {
+    grid-area: header;
+    text-align: center;
+}
+    
+.container > div.portada {
+    grid-area: menu;
+    padding: 1rem;
+}
+
+.portada img {
+    height: 300px;
+    vertical-align: middle;
+}
+.container > div.maincontent {
+    grid-area: content;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background-color: #300458;
+}
+
+.content {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 1rem;
+}
+
+.content2{
+    text-align: left;
+    display: inline-flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+textarea {
+    height: 20em;
+    padding: 1em;
+    border-radius: 1em;
+    font-family: Arial;
+}
+input {
+    width: 100%;
+}
+select {
+    width: 100%;
+}
+option {
+    height: 5rem;
+    font-size: 3em;
+}
+h3 {
+    display: block;
+}
+p {
+    display: block;
+}
+
+.container > div.icons{
+    grid-area: icon;
+    padding: 0.2rem;
+}
+
+.icons {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.icons img {
+    height: 4em;
+    justify-content: space-around;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-color: #300458;
+    border:0.1rem #5f52aa solid;
+}
+.icons img:hover  {
+    opacity: 50%;
+}
+
+.container > div.lists{
+    grid-area: footer;
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+}
+
+button {
+    border: none;
+    background-color: #300458;
+}

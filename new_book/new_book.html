@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro</title>
+    <link rel="stylesheet" href="new_book.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Metamorphous&family=Modern+Antiqua&family=Quintessential&display=swap" rel="stylesheet">
+    <script src="libro.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <!-- Enlace al menú/index -->
+            <button>
+            <a href="../home/home.html">
+                <h1>BookTrack</h1>
+            </a>
+            </button>
+            <!-- Enlace al perfil -->
+            <button><a href="../usuarios/profile.html">
+                <img src="../images/user.png" alt="User Icon" class="user-icon">
+            </a>
+            </button>
+        </div>
+    </header>
+    <main>
+        <div class = "main-content">
+            <div class="container">
+            </form>
+                    <div class="titulo">
+                        <h2 id="title">Título</h2>
+                    </div>
+                    <div class="portada">
+                        <p>Add your bookcover</p>
+                        <img src="./images/portada.jpg" alt="Portada">
+                    </div>
+                    <div  class="maincontent">
+                        <div class="content">
+                            <form>
+                            <h3>Author</h3><input id="author" type="name" placeholder="Enter the author name" name="Author" required>
+                            <h3>Genre</h3><input id="genre" type="text" placeholder="Enter the genre" name="Genre">
+                            <h3>Summary</h3><textarea id="summary" type="text" placeholder="Enter the summary" name="Genre" cols = "80"></textarea>
+                            <h3>Format</h3><input id="format" type="name" placeholder="Enter the author name" name="Author" required>
+                            <h3>Language</h3>
+                                <select>
+                                    <option>Hardcover</option>
+                                    <option>ebook</option>
+                                </select>
+                            <h4>Page Count</h4><p id="pages">320</p>
+                            <h4>Publication Date</h4><p id="published">2000</p>
+                            <h4>Date read</h4><p id="dateread">01/01/2025</p>
+                        </form>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </main>
+<body>
+        
+
+</html>
