@@ -31,33 +31,55 @@
     <main>
         <div class = "main-content">
             <div class="container">
-            </form>
-                    <div class="titulo">
-                        <h2 id="title">Título</h2>
-                    </div>
-                    <div class="portada">
-                        <p>Add your bookcover</p>
-                        <img src="./images/portada.jpg" alt="Portada">
-                    </div>
-                    <div  class="maincontent">
-                        <div class="content">
-                            <form>
-                            <h3>Author</h3><input id="author" type="name" placeholder="Enter the author name" name="Author" required>
-                            <h3>Genre</h3><input id="genre" type="text" placeholder="Enter the genre" name="Genre">
-                            <h3>Summary</h3><textarea id="summary" type="text" placeholder="Enter the summary" name="Genre" cols = "80"></textarea>
-                            <h3>Format</h3><input id="format" type="name" placeholder="Enter the author name" name="Author" required>
-                            <h3>Language</h3>
-                                <select>
-                                    <option>Hardcover</option>
-                                    <option>ebook</option>
+                <div><h1>Create a new book</h1></div>
+                <form>
+                    <h2>Title</h2><input id="title" type="text" placeholder="Enter the title" name="Title">
+                    <h3>Upload the bookcover</h3> 
+                        <input type="file" id="bookcover" accept="image/*">
+                        <img id="preview" src="" alt="Image Preview" hidden>
+                        <script> 
+                            const fileInput = document.getElementById('fileInput'); 
+                            const preview = document.getElementById('preview'); 
+                            
+                            fileInput.addEventListener('change', function(event) { 
+                                const file = event.target.files[0]; 
+                                if (file) { 
+                                    const reader = new FileReader(); 
+                                    reader.onload = function(e) { 
+                                        preview.src = e.target.result; 
+                                        preview.hidden = false; // Show the image preview 
+                                    } 
+                                    reader.readAsDataURL(file); // Convert the file to a data URL 
+                                } else { 
+                                    preview.hidden = true; // Hide the preview if no file is selected 
+                                } 
+                            }); 
+                        </script>
+                    <h3>Author</h3><input id="author" type="name" placeholder="Enter the author name" name="Author" required>
+                    <h3>Genre</h3><select id ="genre">
+                        <option selected class="togrey">Choose a genre</option>
+                        <option>Narrative</option>
+                        <option>Fantasy</option>
+                    </select>
+                    <h3>Summary</h3><textarea id="summary" type="text" placeholder="Enter the summary" name="Genre" cols = "80"></textarea>
+                    <h3>Format</h3>
+                                <select id ="format">
+                                    <optgroup label ="Choose a format">
+                                        <option selected >Choose a format</option>
+                                        <option>Hardcover</option>
+                                        <option>ebook</option>
+                                </optgroup>
                                 </select>
-                            <h4>Page Count</h4><p id="pages">320</p>
-                            <h4>Publication Date</h4><p id="published">2000</p>
-                            <h4>Date read</h4><p id="dateread">01/01/2025</p>
-                        </form>
-                        </div>
-                    </div>
+                    <h3>Language</h3><input id="language" type="text" name="Language" list="Example">
+                                <datalist id="Example">
+                                    <option value="English">English</option>
+                                    <option value="French">French</option>
+                                </datalist>
+                    <h4>Page Count</h4><input id="pages" type="number" placeholder="Enter the number of pages" name="Page count" min ="1" max ="50000">
+                    <h4>Publication Date</h4><input id="published" type="number" placeholder="Enter the year of publication" name="Published" min="1900" max="2099" step ="1">
+                    <h4>Date read</h4><input id="dateread" type="date" placeholder="Enter the year of publication" name="Published">
                 </form>
+            </div>
         </div>
     </main>
 <body>

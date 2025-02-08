@@ -83,7 +83,7 @@ main {
 }
 
 .main-content {
-    background-image: url("./images/fondo.png");
+    background-image: url("../images/fondo.png");
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -122,73 +122,56 @@ main {
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 60%;
-    display: grid;
-    grid-template-areas:
-        "header header"
-        "menu content"
-        "icon footer";
-    grid-template-columns: 2fr 4fr;
-    gap: 0.5rem;
     border: 0.5em #5F52AA solid;
-    border-radius: 1em;;
-    background-color: #5F52AA;
-
-}
-
-.container > div{
-    background-color: #300458;
-    padding: 1rem;
     border-radius: 1em;
+    background-color: #300458;
+    padding: 1em;
+    text-align: left;
 }
 
-
-.container > div.titulo {
-    grid-area: header;
+h1 {
     text-align: center;
 }
-    
-.container > div.portada {
-    grid-area: menu;
-    padding: 1rem;
-}
+
+#preview { 
+    margin-top: 20px; 
+    max-width: 300px; /* Set max width for the preview image */ 
+    max-height: 300px; /* Set max height for the preview image */ 
+} 
 
 .portada img {
     height: 300px;
     vertical-align: middle;
 }
-.container > div.maincontent {
-    grid-area: content;
-    display: grid;
-    grid-template-rows: 1fr auto;
-    background-color: #300458;
+
+
+
+
+input, select, textarea {
+    width: 100%;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5rem;
+    height: 2.8em;
+    border-radius: 1em;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
 }
 
-.content {
-    text-align: left;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    gap: 1rem;
+#bookcover {
+    color: white;
 }
 
-.content2{
-    text-align: left;
-    display: inline-flex;
-    justify-content: space-around;
-    gap: 1rem;
+.optgroup label {
+    color: yellow;
 }
-
 textarea {
     height: 20em;
-    padding: 1em;
     border-radius: 1em;
     font-family: Arial;
-}
-input {
     width: 100%;
 }
-select {
-    width: 100%;
-}
+
 option {
     height: 5rem;
     font-size: 3em;

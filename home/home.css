@@ -83,7 +83,7 @@ main {
 }
 
 .main-content {
-    background-image: url("./images/fondo.png");
+    background-image: url("../images/fondo.png");
     background-size: cover;
     background-position: center;
     height: 100%;
