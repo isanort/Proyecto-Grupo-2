@@ -123,7 +123,7 @@ main {
     display: grid;
     grid-template-areas:
         "header header"
-        "menu content"
+        "content content"
         "icon footer";
     grid-template-columns: 1fr 4fr;
     gap: 0.5rem;
@@ -145,14 +145,12 @@ main {
     text-align: center;
 }
     
-.container > div.portada {
-    grid-area: menu;
-    padding: 1rem;
-}
+
 
 .portada img {
-    height: 300px;
+    height: 400px;
     vertical-align: middle;
+
 }
 .container > div.maincontent {
     grid-area: content;
@@ -167,7 +165,12 @@ main {
     grid-template-columns: 1fr 4fr;
     gap: 1rem;
 }
-
+.side {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    margin-bottom: 1em;
+}
 .content2{
     text-align: left;
     display: inline-flex;
@@ -175,6 +178,9 @@ main {
     gap: 1rem;
 }
 
+.text {
+    text-align: left;
+}
 h3 {
     display: block;
 }
