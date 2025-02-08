@@ -124,7 +124,8 @@ main {
     grid-template-areas:
         "header header"
         "content content"
-        "icon footer";
+        "icon footer"
+        "summary summary";
     grid-template-columns: 1fr 4fr;
     gap: 0.5rem;
     border: 0.5em #5F52AA solid;
@@ -139,7 +140,10 @@ main {
     border-radius: 1em;
 }
 
-
+.summary {
+    grid-area: summary;
+    text-align: left;
+}
 .container > div.titulo {
     grid-area: header;
     text-align: center;
