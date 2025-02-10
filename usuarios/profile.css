@@ -1,15 +1,17 @@
 html, body {
-    margin:0;
+    margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 100%;
 }
 
-.eagle-lake-regular {
-    font-family: "Eagle Lake", serif;
+@font-face {
+    font-family: 'Eagle_Lake';
+    src: url('fonts/EagleLake-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
-}  
+}
+
 
 body {
     background-color: rgb(255, 255, 255);
@@ -25,27 +27,62 @@ body {
 
 .header {
     grid-area: header;
+    position: sticky;
+    top: 0;
+    height: 12vh;
+    width: 100%;
     background-color: #300458;
-    display:flex;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    padding: 1rem;
-    justify-content: center;
     color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
 }
 
 .cont-header {
-    background-color: #300458;
-    display: inline-block;
+    margin: 0;
+    font-family: 'Eagle_Lake', Arial, sans-serif;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
+.cont-header:hover {
+    color: #a49bda;
+    transform: scale(1.1);
 }
 
 .logo {
-    vertical-align: middle;
     max-height: 10%;
     position: absolute;
     margin-right: 17em;
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-icon {
+    width: auto;
+    height: 3.5em;
+    border-radius: 50%;
+    border: 0.2rem solid #5f52aa;
+    transition: all 0.3s ease;
+}
+
+.user-icon:hover {
+    background-color: #a49bda;
+    transform: scale(1.1);
+}
+
+header a {
+    text-decoration: none;
+}
+
+h1 {
+    color: white;
 }
 
 main {
@@ -53,17 +90,15 @@ main {
     background-image: url("purple.png");
     background-size: cover;
     width: 100%;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     place-items: center;
     justify-content: center;
     align-items: center;
-
 }
 
 .cont-main {
-    background-color:  #300458;
+    background-color: #300458;
     border: white 0.2em solid;
     padding: 0 1.2rem 1.2rem 1.2rem;
     border-radius: 5%;
@@ -73,7 +108,7 @@ main {
 
 .columns {
     box-sizing: border-box;
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
@@ -82,7 +117,7 @@ main {
 }
 
 .column {
-    display:flex;
+    display: flex;
     flex-direction: column;
     width: 48%;
 }
@@ -92,7 +127,7 @@ h2 {
 }
 
 label {
-    background-color:  #300458;
+    background-color: #300458;
     margin-top: 0.5rem;
     margin-bottom: 0.2rem;
 }
@@ -122,8 +157,8 @@ input {
 }
 
 .clearfix {
-    background-color:  #300458;
-    display:flex;
+    background-color: #300458;
+    display: flex;
     flex-direction: column-reverse;
     justify-content: space-around;
     margin-top: 0.5em;
@@ -139,7 +174,7 @@ input {
 
 .savebtn {
     background-color: rgb(1, 98, 1);
-    width:94%;
+    width: 94%;
     align-content: center;
 }
 
@@ -147,7 +182,7 @@ input {
     font-size: 0.8em;
 }
 
-button{
+button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.1em;
     color: white;
@@ -155,7 +190,7 @@ button{
     padding: 0.3rem 0.6rem 0.3rem 0.6rem;
     border: white 0.2rem solid;
     border-radius: 1rem;
-    font-family: "Eagle Lake", serif;;
+    font-family: "Eagle Lake", serif;
 }
 
 .signupbtn {
@@ -166,18 +201,6 @@ button{
     background-color: rgb(138, 0, 0);
 }
 
-button:hover{
+button:hover {
     background-color: #a49bda;
-}
-
-footer {
-    grid-area: footer;
-    background-color: #300458;
-    color: white;
-    font-size: 0.8em;
-}
-.cont-footer {
-    background-color: #300458;
-    padding: 1rem;
-    text-align: center;
 }
