@@ -12,21 +12,16 @@ html, body {
     font-style: normal;
 }
 
-
 body {
     background-color: rgb(255, 255, 255);
     display: grid;
-    grid:
-    "header" 15%
-    "main" 1fr
-    "footer" 10%
-    / 1fr;
-    place-content: center;
+    grid-template-rows: auto 1fr; /* Dos filas: una para el header y otra para el main */
+    height: 100vh;
     font-family: "Eagle Lake", serif;
 }
 
 .header {
-    grid-area: header;
+    grid-row: 1; /* Header ocupa la primera parte */
     position: sticky;
     top: 0;
     height: 12vh;
@@ -52,12 +47,6 @@ body {
     transform: scale(1.1);
 }
 
-.logo {
-    max-height: 10%;
-    position: absolute;
-    margin-right: 17em;
-}
-
 .user-container {
     display: flex;
     align-items: center;
@@ -66,7 +55,7 @@ body {
 
 .user-icon {
     width: auto;
-    height: 3.5em;
+    height: 3em;
     border-radius: 50%;
     border: 0.2rem solid #5f52aa;
     transition: all 0.3s ease;
@@ -77,19 +66,18 @@ body {
     transform: scale(1.1);
 }
 
-header a {
-    text-decoration: none;
-}
-
 h1 {
     color: white;
+    font-size: 2.1rem;
 }
 
 main {
-    grid-area: main;
-    background-image: url("purple.png");
+    grid-row: 2; /* Main ocupa el resto de la pantalla */
+    background-image: url("images/cristalera.jpeg");
     background-size: cover;
+    background-position: top;
     width: 100%;
+    height: calc(100vh - 12vh);
     display: flex;
     flex-direction: column;
     place-items: center;
@@ -101,7 +89,7 @@ main {
     background-color: #300458;
     border: white 0.2em solid;
     padding: 0 1.2rem 1.2rem 1.2rem;
-    border-radius: 5%;
+    border-radius: 1em;
     color: white;
     min-width: 55%;
 }
@@ -149,13 +137,6 @@ input {
     margin-bottom: 0.5rem;
 }
 
-.checkbox {
-    background-color: blue;
-    margin-right: 0;
-    width: 5%;
-    color: white;
-}
-
 .clearfix {
     background-color: #300458;
     display: flex;
@@ -173,7 +154,7 @@ input {
 }
 
 .savebtn {
-    background-color: rgb(1, 98, 1);
+    background-color: plum;
     width: 94%;
     align-content: center;
 }
@@ -191,10 +172,6 @@ button {
     border: white 0.2rem solid;
     border-radius: 1rem;
     font-family: "Eagle Lake", serif;
-}
-
-.signupbtn {
-    background-color: rgb(1, 98, 1);
 }
 
 .cancelbtn {
