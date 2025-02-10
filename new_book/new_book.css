@@ -118,6 +118,7 @@ main {
 }
 
 
+
 .container {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -143,7 +144,6 @@ h1 {
     height: 300px;
     vertical-align: middle;
 }
-
 
 
 
@@ -218,4 +218,41 @@ p {
 button {
     border: none;
     background-color: #300458;
+}
+
+
+
+button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.1em;
+    color: white;
+    background-color: plum;
+    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+    border: white 0.2rem solid;
+    border-radius: 1rem;
+    font-family: "Eagle Lake", serif;
+}
+
+button:hover {
+    background-color: #a49bda;
+}
+
+.cancel {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.savebtn {
+    font-size: 1.1em;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    margin-top: 1cm;
+}
+
+.cancelbtn {
+    font-size: 0.8em;
 }
