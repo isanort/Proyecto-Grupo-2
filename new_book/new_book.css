@@ -64,10 +64,10 @@ header h1:hover {
 
 .user-icon {
     width: auto;
-    height: 4em;
+    height: 3em;
     border-radius: 50%;
     align-self: center;
-    border: 0.2rem solid #5f52aa;
+    border: 0.1rem solid #5f52aa;
     transition: all 0.3s ease;
 }
 
@@ -255,4 +255,5 @@ button:hover {
 
 .cancelbtn {
     font-size: 0.8em;
+    background-color: rgb(138, 0, 0);
 }
