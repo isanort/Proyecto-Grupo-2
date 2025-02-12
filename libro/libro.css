@@ -123,8 +123,8 @@ main {
     display: grid;
     grid-template-areas:
         "header header"
-        "content content"
         "icon footer"
+        "content content"
         "summary summary";
     grid-template-columns: 1fr 4fr;
     gap: 0.5rem;
@@ -151,11 +151,18 @@ main {
     
 
 
-.portada img {
-    height: 400px;
-    vertical-align: middle;
+.portada {
+    height: auto;
+    width: 15em;
 
 }
+
+.side img {
+    float: left;
+    margin-right: 1rem;
+    padding-bottom: 1rem;
+}
+
 .container > div.maincontent {
     grid-area: content;
     display: grid;
@@ -163,6 +170,14 @@ main {
     background-color: #300458;
 }
 
+.textcontent {
+    display: flex;
+    flex-direction: row;
+}
+
+.padding {
+    padding: 1rem;
+}
 .content {
     text-align: left;
     display: grid;
@@ -170,8 +185,7 @@ main {
     gap: 1rem;
 }
 .side {
-    display: flex;
-    flex-direction: row;
+
     gap: 2em;
     margin-bottom: 1em;
 }

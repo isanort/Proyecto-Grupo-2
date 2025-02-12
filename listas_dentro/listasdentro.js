@@ -82,7 +82,7 @@ const printbook = async(bookId) => {
                 })
             .catch((error) => {
                 onError(error.message);
-                console.log("error here")
+                console.log("error heres")
                 });
     }
 
