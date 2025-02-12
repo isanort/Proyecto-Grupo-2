@@ -172,7 +172,7 @@ input {
     border: white 0.2rem solid;
     border-radius: 1rem;
     font-family: "Eagle Lake", serif;
-    width: calc(100% - 26.5rem);
+    width: calc(100% - 20rem);
     margin: 0.4cm auto 0;
     display: block;
 }
