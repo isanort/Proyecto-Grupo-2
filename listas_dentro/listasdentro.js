@@ -54,7 +54,8 @@ const onError = (message) => {
 
 const printbook = async(bookId) => {
         console.log(bookId);
-        getBook(bookId)
+        console.log("bookId");
+        getBook(bookId.id)
             .then((book) => {
                 console.log("llamada libro", book);
                 console.log("hola");
@@ -73,14 +74,17 @@ const printbook = async(bookId) => {
                     const link = document.createElement('a')
                     link.href = `../libro/libro.html?id=${book.id}`;
 
+                    link.className ="tarjeta";
+
                     link.appendChild(img);
                     link.appendChild(title);
                     link.appendChild(author);
                     link.appendChild(author);
 
-                    document.getElementById("section".appendChild(link));
+                    document.getElementById("section").appendChild(link);
                 })
             .catch((error) => {
+                console.log("error heres", error)
                 onError(error.message);
                 console.log("error heres")
                 });

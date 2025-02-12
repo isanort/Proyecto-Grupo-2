@@ -220,6 +220,7 @@ section div img:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     padding: 15px;
     background-color: #f4f4f4;
+    text-decoration: none;
 }
 
 .tarjeta img {

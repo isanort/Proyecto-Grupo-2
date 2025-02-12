@@ -227,7 +227,7 @@ p {
     border:0.1rem #5f52aa solid;
 }
 .icons img:hover  {
-    opacity: 50%;
+    opacity: 100%;
 }
 
 .container > div.lists{
