@@ -14,7 +14,7 @@ const headers = {
 
 
 const getBook = async () => {
-        return fetch(`http://localhost:3000/books/id/2`, headers)
+        return fetch(`http://localhost:3000/books/id/110`, headers)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Error en la solicitud: ' + response.status);
@@ -40,6 +40,10 @@ const printBook = async (id) => {
     getBook(id) 
         .then((book) => {
             console.log("llamada libro", book);
+            
+            const bookcover = document.getElementById('bookcover');
+            bookcover.src = book.bookcover;
+            
             const title = document.getElementById('title');
             title.innerHTML = '';
             title.textContent = book.title;
@@ -55,6 +59,14 @@ const printBook = async (id) => {
             const summary = document.getElementById('summary');
             summary.innerHTML = '';
             summary.textContent = book.summary;
+
+            const format = document.getElementById('format');
+            format.innerHTML = '';
+            format.textContent = book.format;
+
+            const language = document.getElementById('language');
+            language.innerHTML = '';
+            language.textContent = book.language;
 
             const pages = document.getElementById('pages');
             pages.innerHTML = '';
