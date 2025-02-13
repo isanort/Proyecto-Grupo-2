@@ -73,9 +73,7 @@ header h1:hover {
     transform: scale(1.1);
 }
 
-option {
-    background-color: rgb(222, 25, 25);
-}
+
 .image-dropdown{
     appearance: none;
     background-image: url("images/user.png");

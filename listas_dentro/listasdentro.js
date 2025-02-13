@@ -15,7 +15,7 @@ const headers = {
 
 const getList = async () => {
     try {
-        const response = await fetch('http://localhost:3000/lists/20');
+        const response = await fetch('http://localhost:3000/lists/2376fd05-e2ca-4121-856f-2d8ef8fcda0d');
         if (response.ok) {
             return await response.json();
         }
@@ -58,7 +58,14 @@ const printbook = async(bookId) => {
         getBook(bookId.id)
             .then((book) => {
                 console.log("llamada libro", book);
-                console.log("hola");
+                console.log("hola"); /////////cambiar para que sea más simple
+
+                /*link.innerHTML = 
+                                <img src=${book.bookcover} alt="${book.title}"/>
+                                <p>${book.title}</p>
+                                <p>${book.author}</p>;*/
+
+
                     const title = document.createElement('p');
                     title.innerHTML = '';
                     title.textContent = book.title;
@@ -81,7 +88,9 @@ const printbook = async(bookId) => {
                     link.appendChild(author);
                     link.appendChild(author);
 
-                    document.getElementById("section").appendChild(link);
+                    const section = document.getElementById("section");
+                    section.appendChild(link);
+                    
                 })
             .catch((error) => {
                 console.log("error heres", error)

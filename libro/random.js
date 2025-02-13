@@ -1,9 +1,9 @@
 console.log('Cargando datos...');
 
 const param = new URLSearchParams(document.location.search);
-let id = param.get('id');
+//let id = param.get('id');
 
-console.log('ID:', id);
+console.log('ID:', );
 func = function(v){
     console.log(v);
 }
@@ -16,8 +16,9 @@ const headers = {
     //body: JSON.stringify(movie) // puede ir o no
 };
 
-const getBook = async (id) => {
-    return fetch(`http://localhost:3000/books/id/${id}`, headers)
+const getRandomBook = async () => {
+    console.log("hi")
+    return await fetch(`http://localhost:3000/books/random`, headers)
         .then((response) => {
             if (!response.ok) {
                 throw new Error('Error en la solicitud: ' + response.status);
@@ -29,6 +30,10 @@ const getBook = async (id) => {
             throw new Error('Error al cargar las películas');
         });
 };
+
+const book =  getRandomBook();
+const id =  book.id;
+console.log(book+"hi");
 
 const header = {
     method: 'PATCH', // PUT, DELETE, GET, PATCH
@@ -45,8 +50,8 @@ const onError = (message) => {
 }
 
 
-const changeFavBook = async (id) => {
-    return fetch(`http://localhost:3000/books/${id}/fav`, header)
+const changeToReadBook = async (id) => {
+    return fetch(`http://localhost:3000/books/${id}/toread`, header)
     .then((response) => {
             if (!response.ok) {
                 throw new Error('Error en la solicitud: ' + response.status);
@@ -59,8 +64,8 @@ const changeFavBook = async (id) => {
         });
 };
 
-const changeToReadBook = async (id) => {
-    return fetch(`http://localhost:3000/books/${id}/toread`, header)
+const changeFavBook = async (id) => {
+    return fetch(`http://localhost:3000/books/${id}/fav`, header)
     .then((response) => {
             if (!response.ok) {
                 throw new Error('Error en la solicitud: ' + response.status);
@@ -87,92 +92,16 @@ const changeOwnedBook = async (id) => {
         });
 };
 
-var numfav = 1;
-var numtoread = 1;
-var numowned = 1
-
-document.getElementById("fav").addEventListener("click", function (){
-    console.log(id)
-    try {
-        changeFavBook(id);
-        if (numfav%2 == 0) {
-            fav.style= 'opacity: 1'; 
-            showfav(id);numfav++;
-        }
-        else {
-            fav.style= 'opacity: 0.5';
-            showfav(id); numfav++;
-        }
-    }
-    catch (error) {
-        console.error("Error en la solicitud:", error);
-        alert("No se pudo conectar con el servidor.");
-    }
-});
-
-document.getElementById("toread").addEventListener("click", function (){
-    console.log(id)
-    try {
-        changeToReadBook(id);
-        if (numtoread%2 == 0) {
-            toread.style= 'opacity: 1'; 
-            showtoread(id);numtoread++;
-        }
-        else {
-            toread.style= 'opacity: 0.5';
-            showtoread(id); numtoread++;
-        }
-    }
-    catch (error) {
-        console.error("Error en la solicitud:", error);
-        alert("No se pudo conectar con el servidor.");
-    }
-});
-
-document.getElementById("owned").addEventListener("click", function (id){
-    console.log(id)
-    try {
-        getBook(id);
-        changeOwnedBook(id);
-        if (book.owned == true) {
-            owned.style= 'opacity: 1'; 
-            showowned(id);numowned++;
-        }
-        else if(book.owned == false) {
-            owned.style= 'opacity: 0.5';
-            showowned(id); numowned++;
-        }
-    }
-    catch (error) {
-        console.error("Error en la solicitud:", error);
-        alert("No se pudo conectar con el servidor.");
-    }
-});
-
-const showfav = async () => {
-    getBook(id)
-        .then ((book) => {
-            console.log("fav libro", book.fav);
-})}
-
-const showtoread = async () => {
-    getBook(id)
-        .then ((book) => {
-            console.log("toread libro", book.toread);
-})}
-
-const showowned = async () => {
-    getBook(id)
-        .then ((book) => {
-            console.log("owned libro", book.owned);
-})}
 
 const printBook = async () => {
-    //fetch movie by id
-    getBook(id) 
+    //fetch book by id
+    getRandomBook()
+
         .then((book) => {
-            console.log("llamada libro", book);
-            
+            console.log("llamada libro", book.id);
+            const id = book.id;
+            console.log("llamada libro", id);
+
             const bookcover = document.getElementById('bookcover');
             bookcover.src = book.bookcover;
             
@@ -212,11 +141,88 @@ const printBook = async () => {
             dateread.innerHTML = '';
             dateread.textContent = book.dateread;
 
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            var numfav = 0;
+            var numtoread = 1;
+            var numowned = 1
+            
+            document.getElementById("fav").addEventListener("click", function (book){
+                console.log(id)
+                try {
+                    changeFavBook(id);
+                    if (numfav%2 == 0) {
+                        fav.style= 'opacity: 1'; 
+                        console.log("añadido a fav");numfav++; ///no fucniona console.log
+                    }
+                    else {
+                        fav.style= 'opacity: 0.5';
+                        console.log("eliminado fav"); numfav++;
+                    }
+                }
+                catch (error) {
+                    console.error("Error en la solicitud:", error);
+                    alert("No se pudo conectar con el servidor.");
+                }
+            });
+            
+            document.getElementById("toread").addEventListener("click", function (){
+                console.log(id)
+                try {
+                    changeToReadBook(id);
+                    if (numtoread%2 == 0) {
+                        toread.style= 'opacity: 1'; 
+                        console.log("toread libro", book.toread);numtoread++;
+                    }
+                    else {
+                        toread.style= 'opacity: 0.5';
+                        console.log("toread libro", book.toread);numtoread++;
+                    }
+                }
+                catch (error) {
+                    console.error("Error en la solicitud:", error);
+                    alert("No se pudo conectar con el servidor.");
+                }
+            });
+            
+            document.getElementById("owned").addEventListener("click", function (){
+                console.log(id)
+                try {
+                    changeOwnedBook(id);
+                    if (numowned%2 == 0) {
+                        owned.style= 'opacity: 1'; 
+                        console.log("owned libro", book.owned);numowned++;
+                    }
+                    else {
+                        owned.style= 'opacity: 0.5';
+                        console.log("owned libro", book.owned); numowned++;
+                    }
+                }
+                catch (error) {
+                    console.error("Error en la solicitud:", error);
+                    alert("No se pudo conectar con el servidor.");
+                }
+            });
+            
+            console.log(book)
+
             //document.getElementById('movie').textContent = `Cargando movie con id: ${id}...`;
         }).catch((error) => {
             onError(error.message);
         });
-}
+
+};
 
 printBook(id);
 

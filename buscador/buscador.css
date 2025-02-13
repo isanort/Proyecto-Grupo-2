@@ -77,7 +77,7 @@ option {
 
 .image-dropdown{
     appearance: none;
-    background-image: url("images/user.png");
+    background-image: url("../images/user.png");
     background-size: contain;
     height: 5em;
     width: 5em;
@@ -85,6 +85,7 @@ option {
     align-self: center;
     border: 0.2rem solid #5f52aa;
 }
+
 .profilebtn {
     display: grid;
     background-color: aqua;

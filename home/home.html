@@ -45,10 +45,12 @@
                 <a href="http://www.google.cl">
                     <button class="image4"></button>
                 </a>
-                <a href="../new_book/new_book.html">
-                    <button class="image5"></button>
-                </a>
-                <a href="../libro/libro.html">
+                <select required onChange ="window.location.href=this.value" class = image-dropdown>
+                    <option value="" selected></option>
+                        <option value="../new_book/new_book.html" class="usericon">Create a new book</option>
+                        <option value="../nueva_lista/nueva_lista.html" class="usericon">Create a new list</option>
+                </select>
+                <a href="../libro/random_book.html">
                     <button class="image6"></button>
                 </a>
             </div>
