@@ -1,7 +1,7 @@
 console.log('Cargando datos...');
 
 const param = new URLSearchParams(document.location.search);
-let id = param.get('id');
+const id = param.get('id');
 
 console.log('ID:', id);
 func = function(v){
@@ -87,6 +87,32 @@ const changeOwnedBook = async (id) => {
         });
 };
 
+
+const select = document.getElementById('lists');
+
+const listheader = {
+    method: 'PATCH', // PUT, DELETE, GET, PATCH
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(select.value) // puede ir o no
+};
+
+const addBookToList = async (id) => {
+    return fetch(`http://localhost:3000/books/${id}/addList`, listheader)
+    .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error('Ocurrió un error:', error.message);
+            throw new Error('Error al cargar las películas');
+        });
+};
+
+
 var numfav = 1;
 var numtoread = 1;
 var numowned = 1
@@ -167,21 +193,53 @@ const showowned = async () => {
             console.log("owned libro", book.owned);
 })}
 
-document.getElementById("lists").addEventListener("click", function (){
-try {const loadFilters = (lists) => {
-    const listsSelect = document.getElementById('state');
+/*document.getElementById("lists").addEventListener("click", async () => {
+    try {
+        const response = await fetch('http://localhost:3000/lists');
+            if (response.ok) {
+            const lists = await response.json();
+            loadLists(lists);  // Función para cargar los valores en los select
+    } else {
+    console.error('Error al obtener los filtros');
+    }
+} catch (error) {
+    console.error("Error al cargar los filtros:", error);
+}
+});*/
+
+document.getElementById("lists").addEventListener("click", async () => {
+    try {
+        console.log(JSON.stringify({id: select.value}));
+        const response = await fetch('http://localhost:3000/lists');
+            if (response.ok) {
+            const lists = await response.json();
+            loadLists(lists);  // Función para cargar los valores en los select
+    } else {
+    console.error('Error al obtener los filtros');
+    }
+} catch (error) {
+    console.error("Error al cargar los filtros:", error);
+}
+});
+
+document.querySelector("option").addEventListener("click", async (id) => {
+    try {
+        console.log(id);
+        addBookToList(id);
+} catch (error) {
+    console.error("Error al añadir lista:", error);
+}
+});
+
+const loadLists = (lists) => {
+    const listsSelect = document.getElementById('lists');
+        select.innerHTML = '';
     lists.forEach(list => {
         const option = document.createElement('option');
-        option.value = list.name;
+        option.value = list.id;
         option.textContent = list.name;
         listsSelect.appendChild(option);
     })}
-} catch (error) {
-    console.error("Error al cargar los filtros:", error);
-  }
-});
-
-
 
 const printBook = async () => {
     //fetch movie by id

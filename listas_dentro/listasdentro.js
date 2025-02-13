@@ -15,7 +15,7 @@ const headers = {
 
 const getList = async () => {
     try {
-        const response = await fetch('http://localhost:3000/lists/2376fd05-e2ca-4121-856f-2d8ef8fcda0d');
+        const response = await fetch('http://localhost:3000/lists/20');
         if (response.ok) {
             return await response.json();
         }

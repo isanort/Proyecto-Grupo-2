@@ -64,51 +64,34 @@ const onError = (message) => {
 ///////////////////////////
 
 
-const printBook = async (id) => {
-    //fetch movie by id
-    getBook(id) 
-        .then((book) => {
-            console.log("llamada libro", book);
+const printlist = async (id) => {
+    getList(id)
+        .then((list) => {
+            console.log("llamada lista", list);
             
-            const bookcover = document.getElementById('bookcover');
-            bookcover.src = book.bookcover;
+            const name = document.getElementById('name');
+            name.innerHTML = '';
+            name.textContent = list.name;
+
+            const description = document.getElementById('description');
+            description.innerHTML = '';
+            description.textContent = list.description;
+
+            const books = list.booksInList;
+
+            console.log(books)
+
+            books.forEach( (bookId) => {
+                console.log(bookId);
+                console.log("hiiii");
+                printbook(bookId);
             
-            const title = document.getElementById('title');
-            title.innerHTML = '';
-            title.textContent = book.title;
-
-            const author = document.getElementById('author');
-            author.innerHTML = '';
-            author.textContent = book.author;
-
-            const genre = document.getElementById('genre');
-            genre.innerHTML = '';
-            genre.textContent = book.genre;
-
-            const summary = document.getElementById('summary');
-            summary.innerHTML = '';
-            summary.textContent = book.summary;
-
-            const format = document.getElementById('format');
-            format.innerHTML = '';
-            format.textContent = book.format;
-
-            const language = document.getElementById('language');
-            language.innerHTML = '';
-            language.textContent = book.language;
-
-            const pages = document.getElementById('pages');
-            pages.innerHTML = '';
-            pages.textContent = book.pages;
-
-            const dateread = document.getElementById('dateread');
-            dateread.innerHTML = '';
-            dateread.textContent = book.dateread;
-
-            //document.getElementById('movie').textContent = `Cargando movie con id: ${id}...`;
-        }).catch((error) => {
-            onError(error.message);
-        });
+            })})
+        
+            .catch((error) => {
+                onError(error.message);
+                console.log("error in here")
+            });
 }
 
 printBook(id);
@@ -117,3 +100,44 @@ printBook(id);
 //list.appendChild(item.title);
 
 //if en cada uno
+
+
+const printbook = async(bookId) => {
+    console.log(bookId);
+    console.log("bookId");
+    getBook(bookId.id)
+        .then((book) => {
+            console.log("llamada libro", book);
+            console.log("hola"); /////////cambiar para que sea más simple
+
+            /*link.innerHTML = 
+                            <img src=${book.bookcover} alt="${book.title}"/>
+                            <p>${book.title}</p>
+                            <p>${book.author}</p>;*/
+
+
+                const img = document.createElement('img');
+                img.src = url(book.img)
+                title.innerHTML = '';
+                title.textContent = book.title;
+
+                const div1 = document.createElement('div');
+                div1.className ="carousel-items";
+
+                const div2 = document.createElement('div');
+                div2.className ="carousel-items";
+
+
+                div1.appendChild(div2);
+                div2.appendChild(img);
+
+                const section = document.getElementById("section");
+                section.appendChild(link);
+                
+            })
+        .catch((error) => {
+            console.log("error heres", error)
+            onError(error.message);
+            console.log("error heres")
+            });
+}
