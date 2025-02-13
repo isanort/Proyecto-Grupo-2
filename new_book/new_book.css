@@ -20,6 +20,13 @@ body {
     overflow: auto;
 }
 
+button {
+    border: none;
+    background-color: #2f045800;
+}
+
+/*header*/
+
 header {
     position: sticky;
     top:0;
@@ -37,44 +44,42 @@ header {
     align-items: center;
 }
 
-header button {
-    background-color: rgba(255, 255, 255, 0) ;
-    border-style: none;
-}
+    header a {
+        text-decoration: none;
+    }
 
-header a {
-    text-decoration: none;
-}
+    header h1{
+        color: white;
+        font-family: 'Eagle Lake', serif;
+        font-size:2.5em;
+        margin: 0;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-header h1{
-    color: white;
-    font-size: 2.5em;
-    font-family: 'Eagle Lake', serif;
-    margin: 0;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
+    header h1:hover {
+        color: #a49bda;
+        transform: scale(1.1);
+    }
 
-header h1:hover {
-    color: #a49bda;
-    transform: scale(1.1);
+    header .image-dropdown{
+        appearance: none;
+        background-image: url("../images/user.png");
+        background-size: contain;
+        height: 4em;
+        width: 4em;
+        border-radius: 50%;
+        align-self: center;
+        border: 0.2rem solid #5f52aa;
+        transition: all 0.3s ease;
+    }
 
-}
+    .image-dropdown:hover {
+        transform: scale(1.1);
+        border-color: #a49bda;
+    }
 
 
-
-.user-icon {
-    width: auto;
-    height: 3em;
-    border-radius: 50%;
-    align-self: center;
-    border: 0.1rem solid #5f52aa;
-    transition: all 0.3s ease;
-}
-
-.user-icon:hover {
-    background-color: #a49bda;
-    transform: scale(1.1);
-}
+/*main*/
 
 main {
     color: white;
@@ -123,14 +128,14 @@ main {
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 60%;
-    border: 0.5em #5F52AA solid;
+    border: 0.3em #5F52AA solid;
     border-radius: 1em;
     background-color: #300458;
     padding: 1em;
     text-align: left;
 }
 
-h1 {
+main h1 {
     text-align: center;
 }
 
@@ -222,7 +227,7 @@ button {
 
 
 
-button {
+main button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.1em;
     color: white;
@@ -233,7 +238,7 @@ button {
     font-family: "Eagle Lake", serif;
 }
 
-button:hover {
+main button:hover {
     background-color: #a49bda;
 }
 

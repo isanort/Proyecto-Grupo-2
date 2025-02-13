@@ -11,17 +11,24 @@
     <script src="new_list.js" defer></script>
 </head>
 <body aria-label="Body" class="layout">
-    <header class="header">
-            <!-- Enlace al menú/index -->
+    <header class = "header">
+        <div class= "header-content">
+            <!-- Enlace al menú/index (página futura) -->
             <button>
-                <a href="../home/home.html">
-                    <h1>BookTrack</h1>
-                </a>
-                </button>
-        <!-- Enlace al perfil (página futura) -->
-        <a href="../usuarios/profile.html">
-            <img src="images/user.png" alt="User Icon" class="user-icon">
-        </a>
+            <a href="../home/home.html">
+                <h1>BookTrack</h1>
+            </a>
+            </button>
+                        <!-- Enlace al perfil (página futura) -->
+            <select required onChange ="window.location.href=this.value" class = image-dropdown>
+                <option value="" selected></option>
+                <option value="../usuarios/profile.html" data-image="images/user.png" class="usericon">Profile</option>
+                <option value="../home/home.html">
+                    Cerrar sesión
+                    </option>
+            </select>
+            </div>
+        </div>
     </header>
     <main>        
         <div class="cont-main">

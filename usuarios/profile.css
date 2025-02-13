@@ -19,57 +19,66 @@ body {
     height: 100vh;
     font-family: "Eagle Lake", serif;
 }
+button {
+    border: none;
+    background-color: #2f045800;
+}
 
-.header {
-    grid-row: 1; /* Header ocupa la primera parte */
+/*header*/
+
+header {
     position: sticky;
-    top: 0;
+    top:0;
     height: 12vh;
-    width: 100%;
+}
+
+.header-content {
     background-color: #300458;
-    color: white;
-    z-index: 1000;
-    display: flex;
+    height: 12vh;
+    width:100%;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
     box-sizing: border-box;
-}
-
-.cont-header {
-    margin: 0;
-    font-family: 'Eagle_Lake', Arial, sans-serif;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.cont-header:hover {
-    color: #a49bda;
-    transform: scale(1.1);
-}
-
-.user-container {
     display: flex;
+    padding: 1rem 2rem 1rem 2rem;
     align-items: center;
-    justify-content: center;
 }
 
-.user-icon {
-    width: auto;
-    height: 3em;
-    border-radius: 50%;
-    border: 0.2rem solid #5f52aa;
-    transition: all 0.3s ease;
-}
+    header a {
+        text-decoration: none;
+    }
 
-.user-icon:hover {
-    background-color: #a49bda;
-    transform: scale(1.1);
-}
+    header h1{
+        color: white;
+        font-family: "Eagle Lake", serif;
+        font-size:2.5em;
+        margin: 0;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-h1 {
-    color: white;
-    font-size: 2.1rem;
-}
+    header h1:hover {
+        color: #a49bda;
+        transform: scale(1.1);
+    }
+
+    header .image-dropdown{
+        appearance: none;
+        background-image: url("../images/user.png");
+        background-size: contain;
+        height: 4em;
+        width: 4em;
+        border-radius: 50%;
+        align-self: center;
+        border: 0.2rem solid #5f52aa;
+        transition: all 0.3s ease;
+    }
+
+    .image-dropdown:hover {
+        transform: scale(1.1);
+        border-color: #a49bda;
+    }
+
+
+/*main*/
 
 main {
     grid-row: 2; /* Main ocupa el resto de la pantalla */
@@ -163,7 +172,7 @@ input {
     font-size: 0.8em;
 }
 
-button {
+main button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.1em;
     color: white;
@@ -178,6 +187,6 @@ button {
     background-color: rgb(138, 0, 0);
 }
 
-button:hover {
+main button:hover {
     background-color: #a49bda;
 }

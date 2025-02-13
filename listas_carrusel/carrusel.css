@@ -10,30 +10,26 @@ html, body {
     width: 100%; /* Asegurar que el body ocupe todo el ancho disponible */
 }
 
-@font-face {
-    font-family: 'Eagle_Lake';
-    src: url('fonts/EagleLake-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body{
     display: grid;
     grid-template-rows: auto 1fr;
     min-height: 100vh;
     overflow: auto;
-    font-family: 'Eagle_Lake', Arial, sans-serif;
+    font-family: "Eagle Lake", serif;
 }
+
+
+button {
+    border: none;
+    background-color: #2f045800;
+}
+
+/*header*/
 
 header {
     position: sticky;
-    font-family: 'Eagle_Lake', Arial, sans-serif;
     top:0;
     height: 12vh;
-    width: 100%;
-    background-color: #300458;
-    color: #fff;
-    z-index: 1000;
 }
 
 .header-content {
@@ -47,38 +43,45 @@ header {
     align-items: center;
 }
 
-.user-icon {
-    width: auto;
-    height: 3.5em;
-    border-radius: 50%;
-    align-self: center;
-    border: 0.2rem solid #5f52aa;
-    transition: all 0.3s ease;
-}
+    header a {
+        text-decoration: none;
+    }
 
-.user-icon:hover {
-    background-color: #a49bda;
-    transform: scale(1.1);
-}
+    header h1{
+        color: white;
+        font-family: "Eagle Lake", serif;
+        font-size:2.5em;
+        margin: 0;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-header a {
-    text-decoration: none;
-}
+    header h1:hover {
+        color: #a49bda;
+        transform: scale(1.1);
+    }
 
-header h1 {
-    margin: 0;
-    color: white;
-    transition: color 0.3s ease, transform 0.3s ease;
-    font-family: 'Eagle_Lake', Arial, sans-serif;
-}
+    header .image-dropdown{
+        appearance: none;
+        background-image: url("../images/user.png");
+        background-size: contain;
+        height: 4em;
+        width: 4em;
+        border-radius: 50%;
+        align-self: center;
+        border: 0.2rem solid #5f52aa;
+        transition: all 0.3s ease;
+    }
 
-header h1:hover {
-    color: #a49bda;
-    transform: scale(1.1);
-}
+    .image-dropdown:hover {
+        transform: scale(1.1);
+        border-color: #a49bda;
+    }
+
+
+/*main*/
 
 main {
-    font-family: 'Eagle_Lake', Arial, sans-serif;
+    font-family: "Eagle Lake", serif;
     color: #fff;
     background-image: url('images/fondo.png');
     background-position: top center; /* La imagen empieza desde la parte superior, centrada */
@@ -92,10 +95,6 @@ main {
     overflow: auto;
 }
 
-button {
-    background-color: rgba(255, 255, 255, 0);
-    border-style: none;
-}
 
 .myLists h1{
     justify-self: center;

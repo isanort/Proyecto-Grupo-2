@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>carrusel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Metamorphous&family=Modern+Antiqua&family=Quintessential&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="carrusel.css">
 <!--link rel="icon" type="image/png" sizes="16x16" href="image.png"-->
 </head>
 
 <body>
-
     <header class = "header">
         <div class= "header-content">
             <!-- Enlace al menú/index (página futura) -->
             <button>
             <a href="../home/home.html">
                 <h1>BookTrack</h1>
+            </a>
             </button>
-            </a>
                         <!-- Enlace al perfil (página futura) -->
-            <button>
-                        <a href="../usuarios/profile.html">
-                <img src="images/user.png" alt="User Icon" class="user-icon">
-            </a>
-        </button>
+            <select required onChange ="window.location.href=this.value" class = image-dropdown>
+                <option value="" selected></option>
+                <option value="../usuarios/profile.html" data-image="images/user.png" class="usericon">Profile</option>
+                <option value="../home/home.html">
+                    Cerrar sesión
+                    </option>
+            </select>
+            </div>
         </div>
     </header>
 
