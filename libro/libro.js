@@ -167,6 +167,22 @@ const showowned = async () => {
             console.log("owned libro", book.owned);
 })}
 
+document.getElementById("lists").addEventListener("click", function (){
+try {const loadFilters = (lists) => {
+    const listsSelect = document.getElementById('state');
+    lists.forEach(list => {
+        const option = document.createElement('option');
+        option.value = list.name;
+        option.textContent = list.name;
+        listsSelect.appendChild(option);
+    })}
+} catch (error) {
+    console.error("Error al cargar los filtros:", error);
+  }
+});
+
+
+
 const printBook = async () => {
     //fetch movie by id
     getBook(id) 

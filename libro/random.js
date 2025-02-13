@@ -155,8 +155,8 @@ const printBook = async () => {
 
             
             var numfav = 0;
-            var numtoread = 1;
-            var numowned = 1
+            var numtoread = 0;
+            var numowned = 0;
             
             document.getElementById("fav").addEventListener("click", function (book){
                 console.log(id)
@@ -164,11 +164,11 @@ const printBook = async () => {
                     changeFavBook(id);
                     if (numfav%2 == 0) {
                         fav.style= 'opacity: 1'; 
-                        console.log("añadido a fav");numfav++; ///no fucniona console.log
+                        console.log("añadido a fav", id);numfav++; ///no fucniona console.log
                     }
                     else {
                         fav.style= 'opacity: 0.5';
-                        console.log("eliminado fav"); numfav++;
+                        console.log("eliminado fav", id); numfav++;
                     }
                 }
                 catch (error) {
@@ -183,7 +183,7 @@ const printBook = async () => {
                     changeToReadBook(id);
                     if (numtoread%2 == 0) {
                         toread.style= 'opacity: 1'; 
-                        console.log("toread libro", book.toread);numtoread++;
+                        console.log("toread libro", book.id.toread);numtoread++;
                     }
                     else {
                         toread.style= 'opacity: 0.5';
