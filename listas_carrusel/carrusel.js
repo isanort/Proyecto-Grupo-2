@@ -13,7 +13,52 @@ const headers = {
 };
 
 
-const getFavBook = async () => {
+const getBooks = async () => {
+    return fetch(`http://localhost:3000/books`, headers)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error('Ocurrió un error:', error.message);
+            throw new Error('Error al cargar favbooks');
+        });
+};
+
+
+const getLists = async () => {
+    return fetch(`http://localhost:3000/lists`, headers)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error('Ocurrió un error:', error.message);
+            throw new Error('Error al cargar favbooks');
+        });
+};
+
+const getBookbyId = async (id) => {
+    return fetch(`http://localhost:3000/books/id/${id}`, headers)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error('Ocurrió un error:', error.message);
+            throw new Error('Error al cargar favbooks');
+        });
+};
+
+
+
+const getFavBooks = async () => {
         return fetch(`http://localhost:3000/books/fav`, headers)
             .then((response) => {
                 if (!response.ok) {
@@ -27,7 +72,7 @@ const getFavBook = async () => {
             });
     };
 
-const getToReadBook = async () => {
+const getToReadBooks = async () => {
     return fetch(`http://localhost:3000/books/toread`, headers)
         .then((response) => {
             if (!response.ok) 
@@ -41,7 +86,7 @@ const getToReadBook = async () => {
         });
     };
 
-const getOwnedBook = async () => {
+const getOwnedBooks = async () => {
         return fetch(`http://localhost:3000/books/owned`, headers)
             .then((response) => {
                 if (!response.ok) {
@@ -55,59 +100,31 @@ const getOwnedBook = async () => {
             });
     };
 
+const getReadBooks = async () => {
+        return fetch(`http://localhost:3000/books/read`, headers)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud: ' + response.status);
+                }
+                return response.json();
+            })
+            .catch((error) => {
+                console.error('Ocurrió un error:', error.message);
+                throw new Error('Error al cargar favbooks');
+            });
+    };
+
+
 const onError = (message) => {
-        const error = document.getElementById('error');
-        error.textContent = message;
-        error.style.display = 'block';
+        console.log(message);
     }
 
 ///////////////////////////
 
-
-const printlist = async (id) => {
-    getList(id)
-        .then((list) => {
-            console.log("llamada lista", list);
-            
-            const name = document.getElementById('name');
-            name.innerHTML = '';
-            name.textContent = list.name;
-
-            const description = document.getElementById('description');
-            description.innerHTML = '';
-            description.textContent = list.description;
-
-            const books = list.booksInList;
-
-            console.log(books)
-
-            books.forEach( (bookId) => {
-                console.log(bookId);
-                console.log("hiiii");
-                printbook(bookId);
-            
-            })})
+const printAllBooks = async() => {
+    getBooks()
+        .then((books) => {
         
-            .catch((error) => {
-                onError(error.message);
-                console.log("error in here")
-            });
-}
-
-printBook(id);
-
-//const item = books.find((book) => book.id == id);
-//list.appendChild(item.title);
-
-//if en cada uno
-
-
-const printbook = async(bookId) => {
-    console.log(bookId);
-    console.log("bookId");
-    getBook(bookId.id)
-        .then((book) => {
-            console.log("llamada libro", book);
             console.log("hola"); /////////cambiar para que sea más simple
 
             /*link.innerHTML = 
@@ -115,24 +132,21 @@ const printbook = async(bookId) => {
                             <p>${book.title}</p>
                             <p>${book.author}</p>;*/
 
-
+                
+                books.forEach((book)=>
+                    {
+                console.log("llamada libro", book);
+                const link = document.createElement('a');
                 const img = document.createElement('img');
-                img.src = url(book.img)
-                title.innerHTML = '';
-                title.textContent = book.title;
-
-                const div1 = document.createElement('div');
-                div1.className ="carousel-items";
-
-                const div2 = document.createElement('div');
-                div2.className ="carousel-items";
+                img.src = book.bookcover;
+                link.href = `../libro/libro.html?id=${book.id}`;
+                img.className= "carousel-item";
+                link.appendChild(img);
 
 
-                div1.appendChild(div2);
-                div2.appendChild(img);
-
-                const section = document.getElementById("section");
-                section.appendChild(link);
+                const carrusel = document.getElementById("allbooks");
+                carrusel.appendChild(link);
+                    })
                 
             })
         .catch((error) => {
@@ -140,4 +154,199 @@ const printbook = async(bookId) => {
             onError(error.message);
             console.log("error heres")
             });
-}
+    }
+
+printAllBooks();
+
+
+const printFavBooks = async() => {
+    getFavBooks()
+        .then((books) => {
+        
+            console.log("hola"); /////////cambiar para que sea más simple
+
+            /*link.innerHTML = 
+                            <img src=${book.bookcover} alt="${book.title}"/>
+                            <p>${book.title}</p>
+                            <p>${book.author}</p>;*/
+
+                
+                books.forEach((book)=>
+                    {
+                console.log("llamada libro", book);
+                const img = document.createElement('img');
+                img.src = book.bookcover;
+                img.className= "carousel-item";
+
+                const carrusel = document.getElementById("carrusel");
+                carrusel.appendChild(img);
+                    })
+                
+            })
+        .catch((error) => {
+            console.log("error heres", error)
+            onError(error.message);
+            console.log("error heres")
+            });
+    }
+
+printFavBooks();
+
+const printToReadBooks = async() => {
+    getToReadBooks()
+        .then((books) => {
+        
+            console.log("hola"); /////////cambiar para que sea más simple
+
+            /*link.innerHTML = 
+                            <img src=${book.bookcover} alt="${book.title}"/>
+                            <p>${book.title}</p>
+                            <p>${book.author}</p>;*/
+                
+                books.forEach((book)=>
+                    {
+                console.log("llamada libro", book);
+                const img = document.createElement('img');
+                img.src = book.bookcover;
+                img.className= "carousel-item";
+
+                const carrusel = document.getElementById("carrusel");
+                carrusel.appendChild(img);
+                    })
+                
+            })
+        .catch((error) => {
+            console.log("error heres", error)
+            onError(error.message);
+            console.log("error heres")
+            });
+    }
+
+printToReadBooks();
+
+const printOwnedBooks = async() => {
+    getOwnedBooks()
+        .then((books) => {
+        
+            console.log("hola"); /////////cambiar para que sea más simple
+
+            /*link.innerHTML = 
+                            <img src=${book.bookcover} alt="${book.title}"/>
+                            <p>${book.title}</p>
+                            <p>${book.author}</p>;*/
+                
+                books.forEach((book)=>
+                    {
+                console.log("llamada libro", book);
+                const img = document.createElement('img');
+                img.src = book.bookcover;
+                img.className= "carousel-item";
+
+                const carrusel = document.getElementById("owned");
+                carrusel.appendChild(img);
+                    })
+                
+            })
+        .catch((error) => {
+            console.log("error heres", error)
+            onError(error.message);
+            console.log("error heres")
+            });
+    }
+
+printOwnedBooks();
+
+const printReadBooks = async() => {
+    getReadBooks()
+        .then((books) => {
+        
+            console.log("hola"); /////////cambiar para que sea más simple
+
+            /*link.innerHTML = 
+                            <img src=${book.bookcover} alt="${book.title}"/>
+                            <p>${book.title}</p>
+                            <p>${book.author}</p>;*/
+                
+                books.forEach((book)=>
+                    {
+                console.log("llamada libro", book);
+                const img = document.createElement('img');
+                img.src = book.bookcover;
+                img.className= "carousel-item";
+
+                const carrusel = document.getElementById("read");
+                carrusel.appendChild(img);
+                    })
+                
+            })
+        .catch((error) => {
+            console.log("error heres", error)
+            onError(error.message);
+            console.log("error heres")
+            });
+    }
+
+printOwnedBooks();
+
+const printListBook = async() => {
+    getLists()
+        .then((lists) => {
+        
+            console.log("hola"); /////////cambiar para que sea más simple
+
+                lists.forEach((list)=> {
+                    //crear sección lista
+                    console.log(list);
+                    const section = document.createElement('section');
+                    const div1 = document.createElement('div');
+                    const div2 = document.createElement('div');
+                    const title = document.createElement('div');
+                    const link = document.createElement('a');
+                    const name = document.createElement('h2');
+                    name.textContent = list.name;
+                    link.href = "";
+                    section.className = "layout";
+                    div1.className = "carousel-container";
+                    div2.className = "carousel-items";
+                    title.className = "titulo";
+                    
+
+                    const main = document.getElementById("main");
+                    div1.className = "carousel-container";
+
+
+                    link.appendChild(name);
+                    title.appendChild(link);
+                    div1.appendChild(div2);
+                    section.appendChild(title)
+                    section.appendChild(div1);
+                    main.appendChild(section);
+
+                    list.booksInList.forEach((bookId)=> {
+                        console.log(bookId.id);
+                        getBookbyId(bookId.id)
+                            .then ((book) => {
+                                if (book !== null){
+                                console.log("llamada libro", book);
+
+
+                                    const img = document.createElement('img');
+                                    img.src = book.bookcover;
+                                    img.className= "carousel-item";
+                                    div2.appendChild(img);}
+                            })
+
+                            
+                    })
+                })
+                
+                
+            })
+        .catch((error) => {
+            console.log("error heres", error)
+            onError(error.message);
+            console.log("error heres")
+            });
+    }
+
+printListBook();

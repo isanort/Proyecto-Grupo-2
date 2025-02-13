@@ -222,7 +222,7 @@ document.getElementById("lists").addEventListener("click", async () => {
 }
 });
 
-document.querySelector("option").addEventListener("click", async (id) => {
+document.getElementById("lists").addEventListener("change", async () => {
     try {
         console.log(id);
         addBookToList(id);

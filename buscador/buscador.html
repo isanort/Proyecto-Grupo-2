@@ -48,42 +48,34 @@
                 </div>
             </div>
             <section id="search_section">
-                <form>
+                <form id="searchform">
                     <div class="selects">
                         <div class="desplegable">
                             <h3>Genre</h3>
                             <select id ="genre">
                                 <option selected class="togrey">Choose a genre</option>
-                                <option>Narrative</option>
-                                <option>Fantasy</option>
+                                <option value="Narrative">Narrative</option>
+                                <option  value="Fantasy">Fantasy</option>
                             </select>
                         </div>
                         <div class="desplegable">
                             <h3>Format</h3>
                             <select id ="format">
                                     <option selected >Choose a format</option>
-                                    <option>Hardcover</option>
-                                    <option>Ebook</option>
+                                    <option  value="Hardcover">Hardcover</option>
+                                    <option  value="Ebook">Ebook</option>
                             </select>
                         </div>
                         <div class="desplegable">
                             <h3>Language</h3>
                             <select id ="language">
                                     <option selected >Choose a language</option>
-                                    <option>English</option>
-                                    <option>Spanish</option>
-                            </select>
-                        </div>
-                        <div class="desplegable">
-                            <h3>To Read</h3>
-                            <select id ="toread">
-                                    <option selected >Choose an option</option>
-                                    <option>Yes</option>
-                                    <option>No</option>
+                                    <option value="English">English</option>
+                                    <option value="Spanish">Spanish</option>
                             </select>
                         </div>
                         <div class="savebtn">
-                                <button type="submit" >Filter books</button>
+                                <button type="submit" id="filterbtn">Filter books</button>
                         </div>
                     </div>
                 </form>
