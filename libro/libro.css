@@ -242,3 +242,15 @@ button {
     border: none;
     background-color: #300458;
 }
+
+select {
+    background-image: url("./images/add.png");
+    background-size: contain;
+
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+    align-self: center;
+    border: 0.1rem solid #5f52aa;
+    transition: all 0.3s ease;
+}

@@ -107,7 +107,7 @@ main {
     color: white;
     font-family: 'Eagle Lake', serif;
     padding: 3rem;
-    padding-left: 9rem;
+    padding-left: 5rem;
     padding-right: 5em;
     display: grid;
     grid-template-rows: auto 1fr;
