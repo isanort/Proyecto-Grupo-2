@@ -202,7 +202,21 @@ const showtoreadalert = async () => {
             }
 })}
 
-const showtoread = async (id) => {
+const showtoread = async () => {
+    getBook(id)
+        .then ((book) => {
+            console.log("toread libro", book.toread);
+            
+            if (book.toread === true) {
+                toread.style= 'opacity: 1'; 
+            
+            }
+            else if (book.toread === false) {
+                toread.style= 'opacity: 0.5'; 
+
+            }
+})}
+/*const showtoread = async (id) => {
     getBook(id)
         .then ((book) => {
             console.log("to read libro", book.toread);
@@ -213,7 +227,7 @@ const showtoread = async (id) => {
             else if (book.toread === false) {
                 toread.style= 'opacity: 0.5'; 
             }
-})}
+})}*/
 
 
 const showownedalert = async () => {
@@ -231,7 +245,22 @@ const showownedalert = async () => {
             }
 })}
 
-const showowned = async (id) => {
+
+const showowned = async () => {
+    getBook(id)
+        .then ((book) => {
+            console.log("owned libro", book.owned);
+            
+            if (book.owned === true) {
+                owned.style= 'opacity: 1'; 
+            
+            }
+            else if (book.owned === false) {
+                owned.style= 'opacity: 0.5'; 
+
+            }
+})}
+/*const showowned = async (id) => {
     getBook(id)
         .then ((book) => {
             console.log("to read libro", book.owned);
@@ -243,7 +272,7 @@ const showowned = async (id) => {
                 owned.style= 'opacity: 0.5'; 
             }
 })}
-
+*/
 
 /*document.getElementById("lists").addEventListener("click", async () => {
     try {
