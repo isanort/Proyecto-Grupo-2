@@ -210,3 +210,11 @@ const printFav = async () => {
                 console.log("error in here")
             });
 }
+
+
+document.getElementById("edit").addEventListener("click", async () => {
+    const param = new URLSearchParams(document.location.search);
+    const id = param.get('id');
+    window.location.href = `../editar_lista/editar_lista.html?${id}`;
+})
+
