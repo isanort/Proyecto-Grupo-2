@@ -46,6 +46,7 @@ const onError = (message) => {
 
 
 const changeFavBook = async (id) => {
+    console.log("hola")
     return fetch(`http://localhost:3000/books/${id}/fav`, header)
     .then((response) => {
             if (!response.ok) {
@@ -95,10 +96,11 @@ const listheader = {
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify(select.value) // puede ir o no
+    body: JSON.stringify({"id": select.value}) // puede ir o no
 };
 
 const addBookToList = async (id) => {
+    console.log("hola");
     return fetch(`http://localhost:3000/books/${id}/addList`, listheader)
     .then((response) => {
             if (!response.ok) {
@@ -121,14 +123,7 @@ document.getElementById("fav").addEventListener("click", function (){
     console.log(id)
     try {
         changeFavBook(id);
-        if (numfav%2 == 0) {
-            fav.style= 'opacity: 1'; 
-            showfav(id);numfav++;
-        }
-        else {
-            fav.style= 'opacity: 0.5';
-            showfav(id); numfav++;
-        }
+        showfav(id);
     }
     catch (error) {
         console.error("Error en la solicitud:", error);
@@ -140,14 +135,7 @@ document.getElementById("toread").addEventListener("click", function (){
     console.log(id)
     try {
         changeToReadBook(id);
-        if (numtoread%2 == 0) {
-            toread.style= 'opacity: 1'; 
-            showtoread(id);numtoread++;
-        }
-        else {
-            toread.style= 'opacity: 0.5';
-            showtoread(id); numtoread++;
-        }
+        showtoread(id);
     }
     catch (error) {
         console.error("Error en la solicitud:", error);
@@ -155,19 +143,11 @@ document.getElementById("toread").addEventListener("click", function (){
     }
 });
 
-document.getElementById("owned").addEventListener("click", function (id){
+document.getElementById("owned").addEventListener("click", function (){
     console.log(id)
     try {
-        getBook(id);
         changeOwnedBook(id);
-        if (book.owned == true) {
-            owned.style= 'opacity: 1'; 
-            showowned(id);numowned++;
-        }
-        else if(book.owned == false) {
-            owned.style= 'opacity: 0.5';
-            showowned(id); numowned++;
-        }
+        showowned(id);
     }
     catch (error) {
         console.error("Error en la solicitud:", error);
@@ -179,18 +159,39 @@ const showfav = async () => {
     getBook(id)
         .then ((book) => {
             console.log("fav libro", book.fav);
+            
+            if (book.fav === true) {
+                fav.style= 'opacity: 1'; 
+            }
+            else if (book.fav === false) {
+                fav.style= 'opacity: 0.5'; 
+            }
 })}
 
 const showtoread = async () => {
     getBook(id)
         .then ((book) => {
-            console.log("toread libro", book.toread);
+            console.log("to read libro", book.toread);
+            
+            if (book.toread === true) {
+                toread.style= 'opacity: 1'; 
+            }
+            else if (book.toread === false) {
+                toread.style= 'opacity: 0.5'; 
+            }
 })}
 
 const showowned = async () => {
     getBook(id)
         .then ((book) => {
             console.log("owned libro", book.owned);
+            
+            if (book.owned === true) {
+                owned.style= 'opacity: 1'; 
+            }
+            else if (book.owned === false) {
+                owned.style= 'opacity: 0.5'; 
+            }
 })}
 
 /*document.getElementById("lists").addEventListener("click", async () => {
@@ -223,6 +224,8 @@ document.getElementById("lists").addEventListener("click", async () => {
 });
 
 document.getElementById("lists").addEventListener("change", async () => {
+    console.log(id)
+    console.log(select.value.toString())
     try {
         console.log(id);
         addBookToList(id);
@@ -242,6 +245,9 @@ const loadLists = (lists) => {
     })}
 
 const printBook = async () => {
+    showfav()
+    showowned()
+    showtoread()
     //fetch movie by id
     getBook(id) 
         .then((book) => {

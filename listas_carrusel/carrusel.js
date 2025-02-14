@@ -173,7 +173,8 @@ const printFavBooks = async() => {
                             <p>${book.title}</p>
                             <p>${book.author}</p>;*/
 
-                
+                            const carrusel = document.getElementById("favoritesimg");
+                            carrusel.innerHTML='';
                             books.forEach((book)=>
                                 {
                             console.log("llamada libro", book);
@@ -187,7 +188,7 @@ const printFavBooks = async() => {
 
                             
             
-                            const carrusel = document.getElementById("favbooks");
+                            
                             carrusel.appendChild(link);
                                 })
                 
@@ -211,7 +212,8 @@ const printToReadBooks = async() => {
                             <img src=${book.bookcover} alt="${book.title}"/>
                             <p>${book.title}</p>
                             <p>${book.author}</p>;*/
-                
+                            const carrusel = document.getElementById("toreadimg");
+                            carrusel.innerHTML='';
                             books.forEach((book)=>
                                 {
                                     console.log("llamada libro", book);
@@ -223,8 +225,8 @@ const printToReadBooks = async() => {
                                         <img src=${book.bookcover} alt="${book.title}" class= "carousel-item">`;
         
                                     
-            
-                            const carrusel = document.getElementById("toreadbooks");
+
+                            
                             carrusel.appendChild(link);
                                 })
                 
@@ -248,7 +250,8 @@ const printOwnedBooks = async() => {
                             <img src=${book.bookcover} alt="${book.title}"/>
                             <p>${book.title}</p>
                             <p>${book.author}</p>;*/
-                
+                            const carrusel = document.getElementById("ownedimg");
+                            carrusel.innerHTML='';
                             books.forEach((book)=>
                                 {
                                     console.log("llamada libro", book);
@@ -261,7 +264,7 @@ const printOwnedBooks = async() => {
         
                                     
             
-                            const carrusel = document.getElementById("ownedbooks");
+                            
                             carrusel.appendChild(link);
                                 })
                 
@@ -298,7 +301,7 @@ const printReadBooks = async() => {
 
                             
             
-                            const carrusel = document.getElementById("read");
+                            const carrusel = document.getElementById("readimg");
                             carrusel.appendChild(link);
                                 })
                 
@@ -310,7 +313,7 @@ const printReadBooks = async() => {
             });
     }
 
-printOwnedBooks();
+printReadBooks();
 
 const printListBook = async() => {
     getLists()

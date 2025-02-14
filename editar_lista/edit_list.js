@@ -1,12 +1,17 @@
 const param = new URLSearchParams(document.location.search);
-const id = param.get('id');
+const listid = param.get('id');
+console.log(listid);
+
+const newname = document.getElementById('name');
+const newdescription = document.getElementById('description');
+
 
 const headers = {
     method: 'PATCH', // PUT, DELETE, GET, PATCH
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify(body) // puede ir o no
+    body: JSON.stringify([{name: newname}, {description: newdescription}]) // puede ir o no
 };
 
 const editList = async (id) => {
@@ -24,9 +29,14 @@ const editList = async (id) => {
         });
 };
 
+
 document.getElementById("return").addEventListener("click", async () => {
     const param = new URLSearchParams(document.location.search);
-    const id = param.get('id');
-    console.log(id);
-    window.location.href = `../listas_dentro/lists_inside.html?${id}`;
+    const listid = param.get('id');
+    console.log(listid);
+    window.location.href = `../listas_dentro/lists_inside.html?id=${listid}`;
+})
+
+document.getElementById("save").addEventListener("click", async () => {
+    editList(id);
 })

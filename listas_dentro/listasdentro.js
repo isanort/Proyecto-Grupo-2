@@ -46,9 +46,7 @@ const getBook = async (id) => {
 
 const onError = (message) => {
     const error = document.getElementById('error');
-    error.innnerHTML = '';
-    error.textContent = message;
-    error.style.display = 'block';
+    console.log(message)
 }
 
 
@@ -215,6 +213,6 @@ const printFav = async () => {
 document.getElementById("edit").addEventListener("click", async () => {
     const param = new URLSearchParams(document.location.search);
     const id = param.get('id');
-    window.location.href = `../editar_lista/editar_lista.html?${id}`;
+    window.location.href = `../editar_lista/editar_lista.html?id=${id}`;
 })
 
