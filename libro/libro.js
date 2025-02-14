@@ -125,7 +125,7 @@ document.getElementById("fav").addEventListener("click", function (){
     console.log(id)
     try {
         changeFavBook(id);
-        showfav(id);
+        showfavalert(id);
     }
     catch (error) {
         console.error("Error en la solicitud:", error);
@@ -137,7 +137,7 @@ document.getElementById("toread").addEventListener("click", function (){
     console.log(id)
     try {
         changeToReadBook(id);
-        showtoread(id);
+        showtoreadalert(id);
     }
     catch (error) {
         console.error("Error en la solicitud:", error);
@@ -149,7 +149,7 @@ document.getElementById("owned").addEventListener("click", function (){
     console.log(id)
     try {
         changeOwnedBook(id);
-        showowned(id);
+        showownedalert(id);
     }
     catch (error) {
         console.error("Error en la solicitud:", error);
@@ -157,20 +157,52 @@ document.getElementById("owned").addEventListener("click", function (){
     }
 });
 
-const showfav = async () => {
+const showfavalert = async () => {
     getBook(id)
         .then ((book) => {
             console.log("fav libro", book.fav);
             
             if (book.fav === false) {
                 fav.style= 'opacity: 1'; 
+                alert(`añadido a fav`);
             }
             else if (book.fav === true) {
                 fav.style= 'opacity: 0.5'; 
+                alert(`eliminado de fav`);
             }
 })}
 
-const showtoread = async () => {
+const showfav = async () => {
+    getBook(id)
+        .then ((book) => {
+            console.log("fav libro", book.fav);
+            
+            if (book.fav === true) {
+                fav.style= 'opacity: 1'; 
+            
+            }
+            else if (book.fav === false) {
+                fav.style= 'opacity: 0.5'; 
+
+            }
+})}
+
+const showtoreadalert = async () => {
+    getBook(id)
+        .then ((book) => {
+            console.log("fav libro", book.toread);
+            
+            if (book.toread === false) {
+                toread.style= 'opacity: 1'; 
+                alert(`añadido a toread`);
+            }
+            else if (book.toread === true) {
+                toread.style= 'opacity: 0.5'; 
+                alert(`eliminado de toread`);
+            }
+})}
+
+const showtoread = async (id) => {
     getBook(id)
         .then ((book) => {
             console.log("to read libro", book.toread);
@@ -183,10 +215,26 @@ const showtoread = async () => {
             }
 })}
 
-const showowned = async () => {
+
+const showownedalert = async () => {
     getBook(id)
         .then ((book) => {
-            console.log("owned libro", book.owned);
+            console.log("fav libro", book.owned);
+            
+            if (book.owned === false) {
+                owned.style= 'opacity: 1'; 
+                alert(`añadido a owned`);
+            }
+            else if (book.owned === true) {
+                owned.style= 'opacity: 0.5'; 
+                alert(`eliminado de owned`);
+            }
+})}
+
+const showowned = async (id) => {
+    getBook(id)
+        .then ((book) => {
+            console.log("to read libro", book.owned);
             
             if (book.owned === true) {
                 owned.style= 'opacity: 1'; 
@@ -195,6 +243,7 @@ const showowned = async () => {
                 owned.style= 'opacity: 0.5'; 
             }
 })}
+
 
 /*document.getElementById("lists").addEventListener("click", async () => {
     try {
@@ -260,9 +309,9 @@ const loadLists = (lists) => {
     })}
 
 const printBook = async () => {
-    showfav()
-    showowned()
-    showtoread()
+    showowned();
+    showfav();
+    showtoread();
     //fetch movie by id
     getBook(id) 
         .then((book) => {
