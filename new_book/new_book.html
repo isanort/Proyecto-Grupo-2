@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Metamorphous&family=Modern+Antiqua&family=Quintessential&display=swap" rel="stylesheet">
     <script src="new_book.js" defer></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/iconpage.png">
 </head>
 
 <body>
@@ -48,36 +49,39 @@
                         </script>
                     <h3>Author</h3><input id="author" type="name" placeholder="Enter the author name" name="Author" required>
                     <h3>Genre</h3><select id ="genre">
-                        <option selected class="togrey">Choose a genre</option>
-                        <option>Science Fiction</option>
-                        <option>Dystopian</option>
-                        <option>Fantasy</option>
-                        <option>Epic Fantasy</option>
-                        <option>Classic Literature</option>
-                        <option>Romance</option>
-                        <option>Comedy</option>
-                        <option>Thriller</option>
-                        <option>Horror</option>
+                   
+                            <option selected class="togrey">Choose a genre</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Dystopian">Dystopian</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Epic Fantasy">Epic Fantasy</option>
+                            <option value="Classic Literature">Classic Literature</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Comedy">Comedy</option>
+                  
                     </select>
                     <h3>Summary</h3><textarea id="summary" type="text" placeholder="Enter the summary" name="Genre" cols = "80"></textarea>
                     <h3>Format</h3>
                                 <select id ="format">
-                                    <optgroup label ="Choose a format">
-                                        <option selected >Choose a format</option>
-                                        <option>Hardcover</option>
-                                        <option>Paperback</option>
-                                        <option>Pocket Edition</option>
-                                        <option>eBook</option>
-                                        <option>Audiobook</option>
-                                        <option>Graphic Novel</option>
-                                        <option>Comic Strip</option>
-                                        <option>Special Edition</option>
-                                </optgroup>
+                                    <option selected class="togrey">Choose a format</option>
+                                    
+                                            <option value="Hardcover">Hardcover</option>
+                                            <option value="Paperback">Paperback</option>
+                                            <option value="Pocket Edition">Pocket Edition</option>
+                                            <option value="eBook">eBook</option>
+                                            <option value="Audiobook">Audiobook</option>
+                                            <option value="Graphic Novel">Graphic Novel</option>
+                                            <option value="Comic Strip">Comic Strip</option>
+                                            <option value="Special Edition">Special Edition</option>
+                                    
+                               
                                 </select>
                     <h3>Language</h3><input id="language" type="text" name="Language" list="Example">
                                 <datalist id="Example">
                                     <option value="English">English</option>
                                     <option value="French">French</option>
+                                    <option value="Español">Español</option>
+
                                 </datalist>
                     <h4>Page Count</h4><input id="pages" type="number" placeholder="Enter the number of pages" name="Page count" min ="1" max ="50000">
                     <h4>Publication Date</h4><input id="published" type="number" placeholder="Enter the year of publication" name="Published" min="1900" max="2099" step ="1">

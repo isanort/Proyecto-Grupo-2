@@ -96,11 +96,17 @@ const listheader = {
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({"id": select.value}) // puede ir o no
+    body: JSON.stringify(select) // puede ir o no
 };
+// JSON.stringify({"id": select.selectedOptions[0].value}) 
+const nameid = document.getElementById("select")
+const listjson = {
+    nameid,
+    };
+//JSON.stringify({id: select.value})
 
 const addBookToList = async (id) => {
-    console.log("hola");
+    console.log("go to fetch");
     return fetch(`http://localhost:3000/books/${id}/addList`, listheader)
     .then((response) => {
             if (!response.ok) {
@@ -110,14 +116,10 @@ const addBookToList = async (id) => {
         })
         .catch((error) => {
             console.error('Ocurrió un error:', error.message);
-            throw new Error('Error al cargar las películas');
         });
 };
 
 
-var numfav = 1;
-var numtoread = 1;
-var numowned = 1
 
 document.getElementById("fav").addEventListener("click", function (){
     console.log(id)
@@ -160,10 +162,10 @@ const showfav = async () => {
         .then ((book) => {
             console.log("fav libro", book.fav);
             
-            if (book.fav === true) {
+            if (book.fav === false) {
                 fav.style= 'opacity: 1'; 
             }
-            else if (book.fav === false) {
+            else if (book.fav === true) {
                 fav.style= 'opacity: 0.5'; 
             }
 })}
@@ -210,7 +212,7 @@ const showowned = async () => {
 
 document.getElementById("lists").addEventListener("click", async () => {
     try {
-        console.log(JSON.stringify({id: select.value}));
+        console.log(JSON.stringify({"id": select.selectedOptions[0].value}));
         const response = await fetch('http://localhost:3000/lists');
             if (response.ok) {
             const lists = await response.json();
@@ -224,15 +226,28 @@ document.getElementById("lists").addEventListener("click", async () => {
 });
 
 document.getElementById("lists").addEventListener("change", async () => {
-    console.log(id)
-    console.log(select.value.toString())
+    console.log("hii");
+    console.log(id);
     try {
-        console.log(id);
-        addBookToList(id);
-} catch (error) {
-    console.error("Error al añadir lista:", error);
-}
-});
+        const param = new URLSearchParams(document.location.search);
+        const id = param.get('id');
+        const response = await fetch(`http://localhost:3000/books/${id}/addList`, {
+            method: "PATCH",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body:  JSON.stringify({"id": select.selectedOptions[0].value})
+        });
+        if (response.ok) {
+            alert("Lista guardado exitosamente!");// Limpiar el formulario tras éxito
+        } else {
+            alert("Error al guardar la lista.");
+        }
+        } catch (error) {
+        console.error("Error en la solicitud:", error);
+        alert("No se pudo conectar con el servidor.");
+        }
+    });
 
 const loadLists = (lists) => {
     const listsSelect = document.getElementById('lists');
