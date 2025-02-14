@@ -13,19 +13,6 @@ const headers = {
 };
 
 
-const getList = async (id) => {
-    try {
-        const response = await fetch(`http://localhost:3000/lists/${id}`);
-        if (response.ok) {
-            return await response.json();
-        }
-    } catch (error) {
-        console.error('Ocurrió un error:', error.message);
-        throw new Error('Error al cargar la lista');
-    }
-    throw new Error('Error en la solicitud');
-};
-
 const getBook = async (id) => {
     try {
         const response = await fetch(`http://localhost:3000/books/id/${id}`);
@@ -39,6 +26,23 @@ const getBook = async (id) => {
     }
     throw new Error('Error en la solicitud');
 };
+
+
+const getOption = async (id) => {
+    try {
+        const response = await fetch(`http://localhost:3000/books/option/${id}`);
+        console.log(response);
+        if (response.ok) {
+            return await response.json();
+        }
+    } catch (error) {
+        console.error('Ocurrió un error:', error.message);
+        throw new Error('Error al cargar la lista');
+    }
+    throw new Error('Error en la solicitud');
+};
+
+
 
 //
 
@@ -99,37 +103,7 @@ const printbook = async(bookId) => {
                 });
     }
 
-const printlist = async (id) => {
-    getList(id)
-        .then((list) => {
-            console.log("llamada lista", list);
-            
-            const name = document.getElementById('name');
-            name.innerHTML = '';
-            name.textContent = list.name;
 
-            const description = document.getElementById('description');
-            description.innerHTML = '';
-            description.textContent = list.description;
-
-            const books = list.booksInList;
-
-            console.log(books)
-
-            books.forEach( (bookId) => {
-                console.log(bookId);
-                console.log("hiiii");
-                printbook(bookId);
-            
-            })})
-        
-            .catch((error) => {
-                onError(error.message);
-                console.log("error in here")
-            });
-}
-
-printlist(id)
     
 const getFavBooks = async () => {
     return fetch(`http://localhost:3000/books/fav`, headers)
@@ -192,7 +166,7 @@ const printFav = async () => {
     
     const name = document.getElementById('name');
     name.innerHTML = '';
-    name.textContent = "favorites";
+    name.textContent = "Favorites";
     getFavBooks()
         .then((books) => {
 
@@ -210,3 +184,5 @@ const printFav = async () => {
                 console.log("error in here")
             });
 }
+
+printFav()

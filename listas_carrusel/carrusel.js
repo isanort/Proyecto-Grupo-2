@@ -135,18 +135,21 @@ const printAllBooks = async() => {
                 
                 books.forEach((book)=>
                     {
-                console.log("llamada libro", book);
-                const link = document.createElement('a');
-                const img = document.createElement('img');
-                img.src = book.bookcover;
-                link.href = `../libro/libro.html?id=${book.id}`;
-                img.className= "carousel-item";
-                link.appendChild(img);
+                        console.log("llamada libro", book);
+                        const link = document.createElement('a')
+                        link.href = `../libro/libro.html?id=${book.id}`;
+                        link.alt =`${book.title}`;
+                        link.className= "tarjeta";
+                        link.innerHTML =`
+                            <img src=${book.bookcover} alt="${book.title}" class= "carousel-item">`;
 
+                        
 
                 const carrusel = document.getElementById("allbooks");
                 carrusel.appendChild(link);
                     })
+
+
                 
             })
         .catch((error) => {
@@ -171,16 +174,22 @@ const printFavBooks = async() => {
                             <p>${book.author}</p>;*/
 
                 
-                books.forEach((book)=>
-                    {
-                console.log("llamada libro", book);
-                const img = document.createElement('img');
-                img.src = book.bookcover;
-                img.className= "carousel-item";
+                            books.forEach((book)=>
+                                {
+                            console.log("llamada libro", book);
+                            
+                            const link = document.createElement('a')
+                            link.href = `../libro/libro.html?id=${book.id}`;
+                            link.alt =`${book.title}`;
+                            link.className= "tarjeta";
+                            link.innerHTML =`
+                                <img src=${book.bookcover} alt="${book.title}" class= "carousel-item">`;
 
-                const carrusel = document.getElementById("carrusel");
-                carrusel.appendChild(img);
-                    })
+                            
+            
+                            const carrusel = document.getElementById("favbooks");
+                            carrusel.appendChild(link);
+                                })
                 
             })
         .catch((error) => {
@@ -203,16 +212,21 @@ const printToReadBooks = async() => {
                             <p>${book.title}</p>
                             <p>${book.author}</p>;*/
                 
-                books.forEach((book)=>
-                    {
-                console.log("llamada libro", book);
-                const img = document.createElement('img');
-                img.src = book.bookcover;
-                img.className= "carousel-item";
-
-                const carrusel = document.getElementById("carrusel");
-                carrusel.appendChild(img);
-                    })
+                            books.forEach((book)=>
+                                {
+                                    console.log("llamada libro", book);
+                                    const link = document.createElement('a')
+                                    link.href = `../libro/libro.html?id=${book.id}`;
+                                    link.alt =`${book.title}`;
+                                    link.className= "tarjeta";
+                                    link.innerHTML =`
+                                        <img src=${book.bookcover} alt="${book.title}" class= "carousel-item">`;
+        
+                                    
+            
+                            const carrusel = document.getElementById("toreadbooks");
+                            carrusel.appendChild(link);
+                                })
                 
             })
         .catch((error) => {
@@ -235,16 +249,21 @@ const printOwnedBooks = async() => {
                             <p>${book.title}</p>
                             <p>${book.author}</p>;*/
                 
-                books.forEach((book)=>
-                    {
-                console.log("llamada libro", book);
-                const img = document.createElement('img');
-                img.src = book.bookcover;
-                img.className= "carousel-item";
-
-                const carrusel = document.getElementById("owned");
-                carrusel.appendChild(img);
-                    })
+                            books.forEach((book)=>
+                                {
+                                    console.log("llamada libro", book);
+                                    const link = document.createElement('a')
+                                    link.href = `../libro/libro.html?id=${book.id}`;
+                                    link.alt =`${book.title}`;
+                                    link.className= "tarjeta";
+                                    link.innerHTML =`
+                                        <img src=${book.bookcover} alt="${book.title}" class= "carousel-item">`;
+        
+                                    
+            
+                            const carrusel = document.getElementById("ownedbooks");
+                            carrusel.appendChild(link);
+                                })
                 
             })
         .catch((error) => {
@@ -267,16 +286,21 @@ const printReadBooks = async() => {
                             <p>${book.title}</p>
                             <p>${book.author}</p>;*/
                 
-                books.forEach((book)=>
-                    {
-                console.log("llamada libro", book);
-                const img = document.createElement('img');
-                img.src = book.bookcover;
-                img.className= "carousel-item";
+                            books.forEach((book)=>
+                                {
+                            console.log("llamada libro", book);
+                            const link = document.createElement('a')
+                            link.href = `../libro/libro.html?id=${book.id}`;
+                            link.alt =`${book.title}`;
+                            link.className= "tarjeta";
+                            link.innerHTML =`
+                                <img src=${book.bookcover} alt="${book.title}" class= "carousel-item">`;
 
-                const carrusel = document.getElementById("read");
-                carrusel.appendChild(img);
-                    })
+                            
+            
+                            const carrusel = document.getElementById("read");
+                            carrusel.appendChild(link);
+                                })
                 
             })
         .catch((error) => {
@@ -304,7 +328,7 @@ const printListBook = async() => {
                     const link = document.createElement('a');
                     const name = document.createElement('h2');
                     name.textContent = list.name;
-                    link.href = "";
+                    link.href = `../listas_dentro/lists_inside.html?id=${list.id}`;
                     section.className = "layout";
                     div1.className = "carousel-container";
                     div2.className = "carousel-items";
@@ -329,12 +353,18 @@ const printListBook = async() => {
                                 if (book !== null){
                                 console.log("llamada libro", book);
 
+                                const link = document.createElement('a')
+                                link.href = `../libro/libro.html?id=${book.id}`;
+                                link.alt =`${book.title}`;
+                                link.className= "tarjeta";
+                                link.innerHTML =`
+                                    <img src=${book.bookcover} alt="${book.title}" class= "carousel-item">`;
 
-                                    const img = document.createElement('img');
-                                    img.src = book.bookcover;
-                                    img.className= "carousel-item";
-                                    div2.appendChild(img);}
-                            })
+                                    div2.appendChild(link);}
+                            
+                            
+                            
+                                })
 
                             
                     })
