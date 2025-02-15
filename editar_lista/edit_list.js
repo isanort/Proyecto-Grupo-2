@@ -46,13 +46,20 @@ const headers = {
 };
 
 const editList = async (listid) => {
+    const listname = document.getElementById("name");
+    
+  
+    const listdescription = document.getElementById("description");
+
+
     console.log("hello")
-    return fetch(`http://localhost:3000/lists/${listid}?name=${newname.value}&description=${newdescription.value}`, headers)
+    return fetch(`http://localhost:3000/lists/${listid}?name=${listname.value}&description=${listdescription.value}`, headers)
 
         .then((response) => {
             if (!response.ok) {
                 throw new Error('Error en la solicitud: ' + response.status);
             }
+            window.location.href = `../listas_dentro/lists_inside.html?id=${listid}`;
             return response.json();
         })
         .catch((error) => {
@@ -62,11 +69,8 @@ const editList = async (listid) => {
 };
 
 
-
+//Return to list
 document.getElementById("return").addEventListener("click", async () => {
-    const param = new URLSearchParams(document.location.search);
-    const listid = param.get('id');
-    console.log(listid);
     window.location.href = `../listas_dentro/lists_inside.html?id=${listid}`;
 })
 console.log(listid);
@@ -77,9 +81,18 @@ const form = document.querySelector("form"); // Seleccionamos el formulario
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault(); 
+ 
   
    
     console.log("hello")
     editList(listid);
     alert("Edited list");
+})
+
+//On cancel, return to list
+document.getElementById("cancel").addEventListener("click", async () => {
+    const param = new URLSearchParams(document.location.search);
+    const listid = param.get('id');
+    console.log(listid);
+    window.location.href = `../listas_dentro/lists_inside.html?id=${listid}`;
 })

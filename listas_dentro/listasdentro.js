@@ -242,10 +242,10 @@ const getDeleteList = async (id) => {
 document.getElementById("delete").addEventListener("click", async () => {
     const param = new URLSearchParams(document.location.search);
     const id = param.get('id');
-    confirm("Delete list\nEither OK or Cancel.");
+    if (confirm("Delete list\nEither OK or Cancel.")===true){
     getDeleteList(id);
     alert(`Deleted list ${id}`);
-    window.location.href = `../listas_carrusel/carrusel.html`
+    window.location.href = `../listas_carrusel/carrusel.html`}
 })
 
 document.addEventListener("DOMContentLoaded", function () {
