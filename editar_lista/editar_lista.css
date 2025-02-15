@@ -131,6 +131,7 @@ main input {
     border: 0.1em white solid;
     border-radius: 0.5rem;
     box-sizing: border-box;
+    color: black;
 }
 
 .savebtn {

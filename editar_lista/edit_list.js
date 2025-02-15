@@ -2,8 +2,8 @@ const param = new URLSearchParams(document.location.search);
 const listid = param.get('id');
 console.log(listid);
 
-const newname = document.getElementById('name');
-const newdescription = document.getElementById('description');
+//const newname = document.getElementById('name');
+//const newdescription = document.getElementById('description');
 
 
 const getList = async (id) => {
@@ -23,6 +23,14 @@ const getList = async (id) => {
 document.addEventListener("DOMContentLoaded", function () {
     getList(listid) 
         .then((list) => {
+            const name = document.getElementById("name");
+            name.value = list.name;
+
+            const description = document.getElementById("description");
+            description.value = list.description;
+
+
+
             const webname = document.getElementById("webname");
             webname.textContent = list.name;
         })})
@@ -34,7 +42,7 @@ const headers = {
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify([{name: newname}, {description: newdescription}]) // puede ir o no
+    //body: JSON.stringify([{name: newname}, {description: newdescription}]) // puede ir o no
 };
 
 const editList = async (listid) => {
@@ -62,8 +70,8 @@ document.getElementById("return").addEventListener("click", async () => {
     window.location.href = `../listas_dentro/lists_inside.html?id=${listid}`;
 })
 console.log(listid);
-console.log(newname);
-console.log(newdescription);
+//console.log(newname);
+//console.log(newdescription);
 
 const form = document.querySelector("form"); // Seleccionamos el formulario
 

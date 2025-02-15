@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="webname">Edit Book</title>
+    <link rel="stylesheet" href="new_book.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Metamorphous&family=Modern+Antiqua&family=Quintessential&display=swap" rel="stylesheet">
+    <script src="new_book.js" defer></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/iconpage.png">
+</head>
+
+<body>
+    <header class = "header">
+        <div class= "header-content">
+            <!-- Enlace al menú/index (página futura) -->
+            <button>
+            <a href="../home/home.html">
+                <h1>BookTrack</h1>
+            </a>
+            </button>
+                        <!-- Enlace al perfil (página futura) -->
+            <select required onChange ="window.location.href=this.value" class = image-dropdown>
+                <option value="" selected></option>
+                <option value="../usuarios/profile.html" data-image="images/user.png" class="usericon">Profile</option>
+                <option value="../home/home.html">
+                    Cerrar sesión
+                    </option>
+            </select>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class = "main-content">
+            <div class="container">
+                <div><h1>Create a new book</h1></div>
+                <form>
+                    <h2>Title</h2><input id="title" type="text" placeholder="Enter the title" name="Title" required>
+                    
+                    <h3>Upload the bookcover</h3> 
+                    <div class="selectimage">
+                        <input type="file" id="bookcover" accept="image/*">
+                        <img id="preview" src="" alt="Image Preview" hidden>
+                    </div>
+                    <h3>Author</h3><input id="author" type="name" placeholder="Enter the author name" name="Author" >
+                    <h3>Genre</h3><select id ="genre">
+                   
+                            <option selected class="togrey">Choose a genre</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Dystopian">Dystopian</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Epic Fantasy">Epic Fantasy</option>
+                            <option value="Classic Literature">Classic Literature</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Comedy">Comedy</option>
+                  
+                    </select>
+                    <h3>Summary</h3><textarea id="summary" type="text" placeholder="Enter the summary" name="Genre" cols = "80"></textarea>
+                    <h3>Format</h3>
+                                <select id ="format">
+                                    <option selected class="togrey">Choose a format</option>
+                                    
+                                            <option value="Hardcover">Hardcover</option>
+                                            <option value="Paperback">Paperback</option>
+                                            <option value="Pocket Edition">Pocket Edition</option>
+                                            <option value="eBook">eBook</option>
+                                            <option value="Audiobook">Audiobook</option>
+                                            <option value="Graphic Novel">Graphic Novel</option>
+                                            <option value="Comic Strip">Comic Strip</option>
+                                            <option value="Special Edition">Special Edition</option>
+                                    
+                               
+                                </select>
+                    <h3>Language</h3><input id="language" type="text" name="Language" list="Example">
+                                <datalist id="Example">
+                                    <option value="English">English</option>
+                                    <option value="French">French</option>
+                                    <option value="Español">Español</option>
+
+                                </datalist>
+                    <h4>Page Count</h4><input id="pages" type="number" placeholder="Enter the number of pages" name="Page count" min ="1" max ="50000">
+                    <h4>Publication Date</h4><input id="published" type="number" placeholder="Enter the year of publication" name="Published" min="1900" max="2099" step ="1">
+                    <h4>Date read</h4><input id="dateread" type="date" placeholder="Enter the year of publication" name="Published">
+                    
+                    <div class="clearfix">
+                            <button type="submit" class="savebtn">
+                            Save changes
+                        </button>
+                    </div>
+                    <div class="cancel">
+                        <a href="../listas_carrusel/carrusel.html">
+                            <button type="button" class="cancelbtn">Cancel</button>
+                        </a> 
+                    
+                </form>
+            </div>
+        </div>
+    </main>
+<body>
+        
+</html>
