@@ -157,7 +157,7 @@ document.getElementById("owned").addEventListener("click", function (){
     }
 });
 
-const showfavalert = async () => {
+const showfavalert = async (id) => {
     getBook(id)
         .then ((book) => {
             console.log("fav libro", book.fav);
@@ -172,7 +172,7 @@ const showfavalert = async () => {
             }
 })}
 
-const showfav = async () => {
+const showfav = async (id) => {
     getBook(id)
         .then ((book) => {
             console.log("fav libro", book.fav);
@@ -187,7 +187,7 @@ const showfav = async () => {
             }
 })}
 
-const showtoreadalert = async () => {
+const showtoreadalert = async (id) => {
     getBook(id)
         .then ((book) => {
             console.log("fav libro", book.toread);
@@ -202,7 +202,7 @@ const showtoreadalert = async () => {
             }
 })}
 
-const showtoread = async () => {
+const showtoread = async (id) => {
     getBook(id)
         .then ((book) => {
             console.log("toread libro", book.toread);
@@ -230,7 +230,7 @@ const showtoread = async () => {
 })}*/
 
 
-const showownedalert = async () => {
+const showownedalert = async (id) => {
     getBook(id)
         .then ((book) => {
             console.log("fav libro", book.owned);
@@ -246,7 +246,7 @@ const showownedalert = async () => {
 })}
 
 
-const showowned = async () => {
+const showowned = async (id) => {
     getBook(id)
         .then ((book) => {
             console.log("owned libro", book.owned);
@@ -318,6 +318,7 @@ document.getElementById("lists").addEventListener("change", async () => {
         });
         if (response.ok) {
             alert("Lista guardado exitosamente!");// Limpiar el formulario tras éxito
+            getBookbyId(id);
         } else {
             alert("Error al guardar la lista.");
         }
@@ -337,13 +338,41 @@ const loadLists = (lists) => {
         listsSelect.appendChild(option);
     })}
 
-const printBook = async () => {
-    showowned();
-    showfav();
-    showtoread();
+
+
+    const printList = async (listId) => {
+        try {
+            console.log("print");
+            console.log(listId)
+            const response = await fetch(`http://localhost:3000/lists/${listId}`);
+                if (response.ok) {
+                    const list = await response.json();
+                    console.log(list.name);
+
+                    return await list.name;
+                    
+                
+                } else {
+                    console.error('Error al obtener las listas');
+                }
+            } catch (error) {
+            console.error("Error al cargar los filtros:", error);
+        }}
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const printBook = async () => {
+        
+        showtoread(id);
+    showfav(id);
+    showowned(id)
     //fetch movie by id
     getBook(id) 
         .then((book) => {
+            const webname = document.getElementById("webname");
+            webname.textContent = book.title;
             console.log("llamada libro", book);
             
             const bookcover = document.getElementById('bookcover');
@@ -385,13 +414,39 @@ const printBook = async () => {
             dateread.innerHTML = '';
             dateread.textContent = book.dateread;
 
+            const lists = document.getElementById('lists');
+            lists.innerHTML = '';
+
+            /*const owned = document.getElementById("owned");
+            if (book.owned === true) {
+                owned.style= 'opacity: 1'; 
+            
+            }
+            else if (book.owned === false) {
+                owned.style= 'opacity: 0.5'; 
+
+            }*/
+
+            console.log(book.customlists);
+            book.customlists.forEach((list)=>{
+                console.log(printList(list.id));
+
+                printList(list);
+                
+
             //document.getElementById('movie').textContent = `Cargando movie con id: ${id}...`;
         }).catch((error) => {
             onError(error.message);
         });
-}
+});
 
+
+}
 printBook(id);
+
+})
+
+
 
 //const item = books.find((book) => book.id == id);
 //list.appendChild(item.title);

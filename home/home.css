@@ -160,12 +160,12 @@ main {
                 background-size: contain;
             }
 
-            .image6 {
+            #random {
                 background-image: url("../images/random.png");
                 background-size: contain;
             }
 
-            .image6:hover {
+            #random:hover {
                 background-image: url("../images/randomwithtext.png");
                 background-size: contain;
             }

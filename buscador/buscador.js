@@ -25,10 +25,15 @@ const printBooks = (books) => {
             const genre = document.getElementById('genre').value;
             const language = document.getElementById('language').value;
             const format = document.getElementById('format').value;
+
+            const fav = document.getElementById('fav').value;
+            const toread = document.getElementById('toread').value;
+            const owned = document.getElementById('owned').value;
+
         //get array of books
             //Filters
             try {
-                const response = await fetch(`http://localhost:3000/booksfilter?genre=${genre}&language=${language}&format=${format}`,{
+                const response = await fetch(`http://localhost:3000/booksfilter?genre=${genre}&language=${language}&format=${format}&fav=${fav}&toread=${toread}&owned=${owned}`,{
                 
                     method: "GET",
                     headers: {

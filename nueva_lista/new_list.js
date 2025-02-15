@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
             alert("Lista guardada exitosamente!");
           form.reset(); // Limpiar el formulario tras éxito
+              window.location.href = `../listas_carrusel/carrusel.html`;
         } else {
             alert("Error al guardar la lista.");
         }

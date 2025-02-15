@@ -105,12 +105,9 @@ main {
     margin-bottom: 2rem;
     width: 85%;
     display: grid;
-    grid-template-areas:
-        "header header"
-        "icon footer"
-        "content content"
-        "summary summary";
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: repeat(3, auto);
+
     gap: 0.5rem;
     border: 0.5em #5F52AA solid;
     border-radius: 1em;;
@@ -125,22 +122,26 @@ main {
     }
 
     .container > div.titulo {
-        grid-area: header;
+        grid-area: 1/1/1/span 3;
         text-align: center;
     }
 
     .container > div.icons{
-        grid-area: icon;
-        padding: 0.2rem;
+        grid-area: 2, 2, 2, 2;
+        padding: 0.1rem;
     }
     
-        .icons {
+        .icons{
             display:flex;
             flex-direction: row;
             justify-content: space-around;
             width: 100%;
         }
         
+     
+
+
+
         .icons img {
             height: 4em;
             justify-content: space-around;
@@ -149,7 +150,20 @@ main {
             background-color: #300458;
             border:0.1rem #5f52aa solid;
         }
+
+
+        .edit img {
+            height: 4em;
+            justify-content: space-around;
+            vertical-align: middle;
+            border-radius: 50%;
+            background-color: #300458;
+            border:0.1rem #5f52aa solid;
+        }
         .icons img:hover  {
+            opacity: 100%;
+        }
+        .edit img:hover  {
             opacity: 100%;
         }
 
@@ -166,7 +180,7 @@ main {
             }
 
     .container > div.maincontent {
-        grid-area: content;
+        grid-area: 3/1/3/4;
         display: grid;
         grid-template-rows: 1fr auto;
         background-color: #300458;
@@ -221,13 +235,22 @@ main {
         }
 
     .container > div.lists{
-        grid-area: footer;
+        grid-area: 2/2/auto/span 1;
+        text-align: left;
+        align-items: center;
+        overflow-x: auto;
+    
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+    }
+    .container > div.edit{
+        grid-area: 2/3/2/3;
         text-align: left;
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 1rem;
     }
-
 
 @media (max-width: 760px) {
     h1 {
@@ -258,7 +281,7 @@ main {
     background-image: url("../images/back.png");
     background-size: contain;
     float: top;
-    height: 3.5em;
+    height: 3.2em;
     
     width: 3.5em;
     position: absolute;

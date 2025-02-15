@@ -184,11 +184,14 @@ section{
 form {
     width: 90%;
     margin: 1rem;
+    display: flex;
+    flex-direction: row;
 }
 
     .selects {
         display:grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
         color: white;
         width: 100%;
@@ -205,15 +208,17 @@ form {
             height: 8em;
         }
 
-
+        .submitdiv {
+            align-content: center;
+        }
 
         .savebtn {
             background-color: #a49bda;
             width: 12em;
             border-radius: 1em;
             border: 0.1rem solid #ccc;
-            justify-items: center;
-            align-items: center;
+            justify-self: center;
+            align-self: center;
             height: 4em;
        
         }
@@ -223,7 +228,7 @@ form {
             font-family: 'Eagle Lake', serif ;
             height: 100%;
             width: 100%;
-          
+            
             padding: 1rem;;
             
      

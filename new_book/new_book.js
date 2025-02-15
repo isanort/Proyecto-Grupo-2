@@ -47,8 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (response.ok) {
-            alert("Libro guardado exitosamente!");
+            alert(`Libro guardado exitosamente!`);
           form.reset(); // Limpiar el formulario tras éxito
+          window.location.href = `../listas_carrusel/carrusel.html`;
         } else {
             alert("Error al guardar el libro.");
         }

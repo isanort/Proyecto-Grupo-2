@@ -247,3 +247,10 @@ document.getElementById("delete").addEventListener("click", async () => {
     alert(`Deleted list ${id}`);
     window.location.href = `../listas_carrusel/carrusel.html`
 })
+
+document.addEventListener("DOMContentLoaded", function () {
+    getList(id) 
+        .then((list) => {
+            const webname = document.getElementById("webname");
+            webname.textContent = list.name;
+        })})

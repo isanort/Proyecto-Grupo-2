@@ -6,6 +6,29 @@ const newname = document.getElementById('name');
 const newdescription = document.getElementById('description');
 
 
+const getList = async (id) => {
+    try {
+        const response = await fetch(`http://localhost:3000/lists/${id}`);
+        if (response.ok) {
+            return await response.json();
+
+        }
+    } catch (error) {
+        console.error('Ocurrió un error:', error.message);
+        throw new Error('Error al cargar la lista');
+    }
+    throw new Error('Error en la solicitud');
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+    getList(listid) 
+        .then((list) => {
+            const webname = document.getElementById("webname");
+            webname.textContent = list.name;
+        })})
+
+
+
 const headers = {
     method: 'PATCH', // PUT, DELETE, GET, PATCH
     headers: {
@@ -29,6 +52,7 @@ const editList = async (listid) => {
             throw new Error('Error al cargar las películas');
         });
 };
+
 
 
 document.getElementById("return").addEventListener("click", async () => {
