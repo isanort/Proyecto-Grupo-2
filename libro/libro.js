@@ -290,16 +290,16 @@ const showowned = async (id) => {
 
 document.getElementById("lists").addEventListener("click", async () => {
     try {
-        console.log(JSON.stringify({"id": select.selectedOptions[0].value}));
+        //console.log(JSON.stringify({"id": select.selectedOptions[0].value}));
         const response = await fetch('http://localhost:3000/lists');
             if (response.ok) {
             const lists = await response.json();
             loadLists(lists);  // Función para cargar los valores en los select
     } else {
-    console.error('Error al obtener los filtros');
+    console.error('Error al obtener las listas');
     }
 } catch (error) {
-    console.error("Error al cargar los filtros:", error);
+    console.error("Error al cargar las listas:", error);
 }
 });
 
@@ -314,17 +314,17 @@ document.getElementById("lists").addEventListener("change", async () => {
             headers: {
             "Content-Type": "application/json"
             },
-            body:  JSON.stringify({"id": select.selectedOptions[0].value})
+            body:  JSON.stringify({"id": select.value})
         });
         if (response.ok) {
-            alert("Lista guardado exitosamente!");// Limpiar el formulario tras éxito
-            getBookbyId(id);
+            alert("Lista guardada exitosamente!");// Limpiar el formulario tras éxito
+        
         } else {
             alert("Error al guardar la lista.");
         }
-        } catch (error) {
+    } catch (error) {
         console.error("Error en la solicitud:", error);
-        alert("No se pudo conectar con el servidor.");
+       
         }
     });
 
@@ -360,62 +360,66 @@ const loadLists = (lists) => {
         }}
 
 
+        const printBook = async () => {
+            showtoread(id);
+            showfav(id);
+            showowned(id)
+            //fetch movie by id
+            getBook(id) 
+                .then((book) => {
+                    const webname = document.getElementById("webname");
+                    webname.textContent = book.title;
+                    console.log("llamada libro", book);
+                    
+                    const bookcover = document.getElementById('bookcover');
+                    bookcover.src = book.bookcover;
+                    
+                    const title = document.getElementById('title');
+                    title.innerHTML = '';
+                    title.textContent = book.title;
+        
+                    const author = document.getElementById('author');
+                    author.innerHTML = '';
+                    author.textContent = book.author;
+        
+                    const genre = document.getElementById('genre');
+                    genre.innerHTML = '';
+                    genre.textContent = book.genre;
+        
+                    const summary = document.getElementById('summary');
+                    summary.innerHTML = '';
+                    summary.textContent = book.summary;
+        
+                    const format = document.getElementById('format');
+                    format.innerHTML = '';
+                    format.textContent = book.format;
+        
+                    const language = document.getElementById('language');
+                    language.innerHTML = '';
+                    language.textContent = book.language;
+        
+                    const pages = document.getElementById('pages');
+                    pages.innerHTML = '';
+                    pages.textContent = book.pages;
+        
+                    const published = document.getElementById('published');
+                    published.innerHTML = '';
+                    published.textContent = book.published;
+        
+                    const dateread = document.getElementById('dateread');
+                    dateread.innerHTML = '';
+                    dateread.textContent = book.dateread;
+        
+                    const lists = document.getElementById('lists');
+                    lists.innerHTML = '';
+                })
+                .catch((error) => {
+                    onError(error.message);
+                });}
 
 document.addEventListener("DOMContentLoaded", function () {
+    printBook(id);
 
-    const printBook = async () => {
-        
-        showtoread(id);
-    showfav(id);
-    showowned(id)
-    //fetch movie by id
-    getBook(id) 
-        .then((book) => {
-            const webname = document.getElementById("webname");
-            webname.textContent = book.title;
-            console.log("llamada libro", book);
-            
-            const bookcover = document.getElementById('bookcover');
-            bookcover.src = book.bookcover;
-            
-            const title = document.getElementById('title');
-            title.innerHTML = '';
-            title.textContent = book.title;
-
-            const author = document.getElementById('author');
-            author.innerHTML = '';
-            author.textContent = book.author;
-
-            const genre = document.getElementById('genre');
-            genre.innerHTML = '';
-            genre.textContent = book.genre;
-
-            const summary = document.getElementById('summary');
-            summary.innerHTML = '';
-            summary.textContent = book.summary;
-
-            const format = document.getElementById('format');
-            format.innerHTML = '';
-            format.textContent = book.format;
-
-            const language = document.getElementById('language');
-            language.innerHTML = '';
-            language.textContent = book.language;
-
-            const pages = document.getElementById('pages');
-            pages.innerHTML = '';
-            pages.textContent = book.pages;
-
-            const published = document.getElementById('published');
-            published.innerHTML = '';
-            published.textContent = book.published;
-
-            const dateread = document.getElementById('dateread');
-            dateread.innerHTML = '';
-            dateread.textContent = book.dateread;
-
-            const lists = document.getElementById('lists');
-            lists.innerHTML = '';
 
             /*const owned = document.getElementById("owned");
             if (book.owned === true) {
@@ -425,26 +429,21 @@ document.addEventListener("DOMContentLoaded", function () {
             else if (book.owned === false) {
                 owned.style= 'opacity: 0.5'; 
 
-            }*/
+            }
 
             console.log(book.customlists);
             book.customlists.forEach((list)=>{
                 console.log(printList(list.id));
 
-                printList(list);
+                printList(list);*/
                 
 
             //document.getElementById('movie').textContent = `Cargando movie con id: ${id}...`;
         }).catch((error) => {
             onError(error.message);
-        });
+            console.log(error.message);
 });
 
-
-}
-printBook(id);
-
-})
 
 
 
