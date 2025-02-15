@@ -139,8 +139,15 @@ main h1 {
     text-align: center;
 }
 
+.selectimage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+
 #preview { 
-    margin-top: 20px; 
+    margin-bottom: 2rem;
     max-width: 300px; /* Set max width for the preview image */ 
     max-height: 300px; /* Set max height for the preview image */ 
 } 
@@ -163,8 +170,9 @@ input, select, textarea {
     margin-bottom: 1rem;
 }
 
-#bookcover {
+input #bookcover {
     color: white;
+    width: 50%;
 }
 
 .optgroup label {

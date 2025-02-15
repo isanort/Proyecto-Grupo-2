@@ -39,14 +39,12 @@
                 <div><h1>Create a new book</h1></div>
                 <form>
                     <h2>Title</h2><input id="title" type="text" placeholder="Enter the title" name="Title" required>
+                    
                     <h3>Upload the bookcover</h3> 
+                    <div class="selectimage">
                         <input type="file" id="bookcover" accept="image/*">
                         <img id="preview" src="" alt="Image Preview" hidden>
-                        <script> 
-                            const fileInput = document.getElementById('fileInput'); 
-                            const preview = document.getElementById('preview'); 
-                        
-                        </script>
+                    </div>
                     <h3>Author</h3><input id="author" type="name" placeholder="Enter the author name" name="Author" >
                     <h3>Genre</h3><select id ="genre">
                    
