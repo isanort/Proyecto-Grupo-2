@@ -1,21 +1,84 @@
 const param = new URLSearchParams(document.location.search);
 const id = param.get('id');
 
-document.addEventListener("DOMContentLoaded", function () {
-  getBook(id) 
+
+//Autofill with previous data
+document.addEventListener("DOMContentLoaded", async function () {
+
+  getBookbyId(id) 
       .then((book) => {
           const webname = document.getElementById("webname");
           webname.textContent = `Edit ${book.title}`;
+
+          const title = document.getElementById("title");
+          const author = document.getElementById("author");
+          const genre = document.getElementById("genre");
+          const summary = document.getElementById("summary");
+          const format = document.getElementById("format");
+          const language = document.getElementById("language");
+          const pages = document.getElementById("pages");
+          const published = document.getElementById("published");
+          const dateread = document.getElementById("dateread");
+          let preview = document.getElementById("preview");
+          preview.hidden = false;
+
+          title.value = book.title;
+          author.value = book.author;
+          genre.value = book.genre;
+          summary.value = book.summary;
+          format.value = book.format;
+          language.value = book.language;
+          pages.value = book.pages;
+          published.value = book.published;
+          dateread.value = book.dateread;
+
+          preview.src = book.bookcover;
+
+
+           /*/ Manejo de la imagen (conversión a Base64)
+        let preview = "";
+        if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        preview = await convertToBase64(file); // Convertimos la imagen a Base64
+        }*/
+
       })})
 
 
+  const getBookbyId = async (id) => {
+    return fetch(`http://localhost:3000/books/id/${id}`, headers)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error('Ocurrió un error:', error.message);
+            throw new Error('Error al cargar favbooks');
+        });
+};
+
+
+const headers = {
+  method: 'GET', // PUT, DELETE, GET, PATCH
+  headers: {
+      'Content-Type': 'application/json'
+  },
+  //body: JSON.stringify(movie) // puede ir o no
+};
 
 
 
 
-
-
-
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result);
+  reader.onerror = (error) => reject(error);
+  });
+}
 
 
 
@@ -122,3 +185,14 @@ fileInput.addEventListener('change', function(event) {
         preview.hidden = true; // Hide the preview if no file is selected 
     } 
 })
+
+
+
+
+//Cancel button, return to book view
+document.getElementById("cancel").addEventListener("click", function (){
+
+
+  window.location.href = `../libro/libro.html?id=${id}`;
+
+});

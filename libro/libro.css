@@ -250,6 +250,7 @@ main {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 1rem;
+        font-family: 'Eagle Lake', serif;
     }
 
 @media (max-width: 760px) {
@@ -296,9 +297,28 @@ main {
 .carruselbtn button {
     height: 100%;
     width: 100%;
+    
 }
 
 .carruselbtn a {
     height: 100%;
     width: 100%;
+}
+
+.buttons {
+    background-color: white;
+    border-radius: 1em;
+    border:#a49bda solid 0.1rem;
+    height: 2em;
+    width: 8em;
+    align-self: center;
+    color: #4d1384;
+    font-family: 'Eagle Lake', serif;
+    text-align: center;
+}
+
+.buttons button {
+    font-family: 'Eagle Lake', serif;
+    color: #4d1384;
+   
 }

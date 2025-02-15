@@ -452,3 +452,13 @@ printBook(id);
 //list.appendChild(item.title);
 
 //if en cada uno
+
+
+
+//Send to edit page
+document.getElementById("edit").addEventListener("click", function (){
+
+
+    window.location.href = `../new_book/edit_book.html?id=${id}`;
+  
+});
