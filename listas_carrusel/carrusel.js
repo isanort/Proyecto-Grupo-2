@@ -136,7 +136,7 @@ const printAllBooks = async() => {
                 books.forEach((book)=>
                     {
                         console.log("llamada libro", book);
-                        const link = document.createElement('a')
+                        const link = document.createElement('a');
                         link.href = `../libro/libro.html?id=${book.id}`;
                         link.alt =`${book.title}`;
                         link.className= "tarjeta";

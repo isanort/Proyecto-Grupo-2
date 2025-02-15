@@ -253,6 +253,11 @@ main {
         font-family: 'Eagle Lake', serif;
     }
 
+    .lists a{
+        text-decoration: none;
+        color: white;
+    }
+
 @media (max-width: 760px) {
     h1 {
         font-size: 1.5em;

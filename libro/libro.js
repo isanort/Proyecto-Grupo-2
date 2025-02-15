@@ -338,6 +338,18 @@ const loadLists = (lists) => {
         listsSelect.appendChild(option);
     })}
 
+    const getListbyId = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:3000/lists/${id}`);
+            if (response.ok) {
+                return await response.json();
+            }
+        } catch (error) {
+            console.error('Ocurrió un error:', error.message);
+            throw new Error('Error al cargar la lista');
+        }
+        throw new Error('Error en la solicitud');
+    };
 
 
     const printList = async (listId) => {
@@ -410,8 +422,20 @@ const loadLists = (lists) => {
                     dateread.innerHTML = '';
                     dateread.textContent = book.dateread;
         
-                    const lists = document.getElementById('lists');
+                    const lists = document.getElementById('booklists');
                     lists.innerHTML = '';
+                    const booklistsid = book.customlists;
+                    console.log(booklistsid);
+                    booklistsid.forEach(async (listid) => {
+                        console.log(listid.id);
+                        const list = await getListbyId(listid.id);
+                        console.log(list);
+                        const link = document.createElement('a');
+                        link.href = `../listas_dentro/lists_inside.html?id=${list.id}`;
+                        link.textContent = `${list.name}, `;
+                        lists.appendChild(link);
+                    })
+
                 })
                 .catch((error) => {
                     onError(error.message);
