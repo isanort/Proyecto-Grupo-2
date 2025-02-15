@@ -14,8 +14,9 @@ const headers = {
     body: JSON.stringify([{name: newname}, {description: newdescription}]) // puede ir o no
 };
 
-const editList = async (id) => {
-    return fetch(`http://localhost:3000/lists/${id}`, headers)
+const editList = async (listid) => {
+    console.log("hello")
+    return fetch(`http://localhost:3000/lists/${listid}?name=${newname.value}&description=${newdescription.value}`, headers)
 
         .then((response) => {
             if (!response.ok) {
@@ -36,7 +37,17 @@ document.getElementById("return").addEventListener("click", async () => {
     console.log(listid);
     window.location.href = `../listas_dentro/lists_inside.html?id=${listid}`;
 })
+console.log(listid);
+console.log(newname);
+console.log(newdescription);
 
-document.getElementById("save").addEventListener("click", async () => {
-    editList(id);
+const form = document.querySelector("form"); // Seleccionamos el formulario
+
+form.addEventListener("submit", async function (event) {
+  event.preventDefault(); 
+  
+   
+    console.log("hello")
+    editList(listid);
+    alert("Edited list");
 })

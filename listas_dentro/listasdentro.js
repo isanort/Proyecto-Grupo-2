@@ -12,6 +12,14 @@ const headers = {
     //body: JSON.stringify(movie) // puede ir o no
 };
 
+const deleteheader = {
+    method: 'DELETE', // PUT, DELETE, GET, PATCH
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    //body: JSON.stringify(movie) // puede ir o no
+};
+
 
 const getList = async (id) => {
     try {
@@ -216,3 +224,26 @@ document.getElementById("edit").addEventListener("click", async () => {
     window.location.href = `../editar_lista/editar_lista.html?id=${id}`;
 })
 
+
+const getDeleteList = async (id) => {
+    return fetch(`http://localhost:3000/lists/delete/${id}`, deleteheader)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error('Ocurrió un error:', error.message);
+            throw new Error('Error al cargar favbooks');
+        });
+};
+
+document.getElementById("delete").addEventListener("click", async () => {
+    const param = new URLSearchParams(document.location.search);
+    const id = param.get('id');
+    confirm("Delete list\nEither OK or Cancel.");
+    getDeleteList(id);
+    alert(`Deleted list ${id}`);
+    window.location.href = `../listas_carrusel/carrusel.html`
+})

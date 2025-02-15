@@ -87,6 +87,8 @@ main {
     padding: 0rem;
     display: grid;
     grid-template-rows:auto 1fr;
+    background-image: url("../images/fondo.png");
+    background-size: contain;
 }
 
 .cont-main {
@@ -94,7 +96,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url("../images/fondo.png");
+   
     padding-bottom: 1rem;
 }
 
@@ -132,18 +134,26 @@ main {
                 height: 2em;
                 width: 8em;
                 align-self: center;
+                color: #4d1384;
+                font-family: "Eagle Lake", serif;
             }
 
             .button {
-                text-decoration: none;
-                align-self: center;
-                justify-content: space-around;
+
                 background-color: rgba(0, 255, 255, 0);
                 font-family: "Eagle Lake", serif;
                 height: 100%;
-                
+                align-self: center;
+                align-content: center;
+                color: #85c439;
             }
 
+
+            .buttons {
+                align-content: center;
+                color: red;
+                font-family: "Eagle Lake", serif;
+            }
 
             .return {
                 width: 3.5em;

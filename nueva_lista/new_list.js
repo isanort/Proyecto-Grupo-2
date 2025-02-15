@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (response.ok) {
-            alert("Lista guardado exitosamente!");
+            alert("Lista guardada exitosamente!");
           form.reset(); // Limpiar el formulario tras éxito
         } else {
             alert("Error al guardar la lista.");

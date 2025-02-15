@@ -81,7 +81,8 @@ header .image-dropdown{
 /*main*/
 
 main {
-    background-color: #a49bda;
+    background-image: url("../images/fondo.png");
+    background-size: contain;
     color: white;
     font-family: 'Eagle Lake', serif;
     padding: 0rem;
@@ -94,8 +95,9 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url("../images/fondo.png");
+ 
     padding-bottom: 1rem;
+    height: 100%;
 }
 
 /*main header*/
@@ -213,14 +215,18 @@ form {
             justify-items: center;
             align-items: center;
             height: 4em;
-            text-align: center;
+       
         }
 
         .savebtn button{
-            color: white;
+            color:white;
             font-family: 'Eagle Lake', serif ;
+            height: 100%;
+            width: 100%;
+          
+            padding: 1rem;;
             
-            padding-top: 1em;
+     
         }
 
 .line{

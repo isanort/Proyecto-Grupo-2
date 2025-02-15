@@ -31,6 +31,7 @@ header {
     position: sticky;
     top:0;
     height: 12vh;
+    z-index:2;
 }
 
 .header-content {
@@ -100,9 +101,9 @@ main {
 
 
 .container {
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
-    width: 90%;
+    width: 85%;
     display: grid;
     grid-template-areas:
         "header header"
@@ -248,4 +249,33 @@ main {
     .gallery {
       gap: 1rem; /* Reducir espacio entre imágenes */
     }
+}
+
+
+
+
+.carruselbtn {
+    background-image: url("../images/back.png");
+    background-size: contain;
+    float: top;
+    height: 3.5em;
+    
+    width: 3.5em;
+    position: absolute;
+    top: 14%;
+    left: 2%;
+    padding: 0;
+    border-radius: 50%;
+    border: 0.1rem solid #ccc;
+    z-index: 1;
+}
+
+.carruselbtn button {
+    height: 100%;
+    width: 100%;
+}
+
+.carruselbtn a {
+    height: 100%;
+    width: 100%;
 }
