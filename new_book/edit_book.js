@@ -99,6 +99,8 @@ function convertToBase64(file) {
 //FRONT
 
 document.addEventListener("DOMContentLoaded", function () {
+  const returnback = document.getElementById("returnback") ;
+  returnback.href= `../libro/libro.html?id=${id}`;
     const form = document.querySelector("form"); // Seleccionamos el formulario
     const fileInput = document.getElementById("bookcover"); // Input de imagen
     form.addEventListener("submit", async function (event) {
@@ -113,6 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const pages = document.getElementById("pages").value;
         const published = document.getElementById("published").value;
         const dateread = document.getElementById("dateread").value;
+       
+
+
       // Manejo de la imagen (conversión a Base64)
         let bookcover = "";
         if (fileInput.files.length > 0) {
@@ -190,9 +195,3 @@ fileInput.addEventListener('change', function(event) {
 
 
 //Cancel button, return to book view
-document.getElementById("cancel").addEventListener("click", function (){
-
-
-  window.location.href = `../libro/libro.html?id=${id}`;
-
-});

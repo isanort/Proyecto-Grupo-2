@@ -322,8 +322,14 @@ main {
     text-align: center;
 }
 
+.buttons:hover {
+    opacity: 0.5;
+}
+
 .buttons button {
     font-family: 'Eagle Lake', serif;
     color: #4d1384;
+    height: 100%;
+    width: 100%;
    
 }

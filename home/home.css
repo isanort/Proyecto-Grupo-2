@@ -95,7 +95,7 @@ main {
 
 .main-content {
     background-image: url("../images/fondo.png");
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     height: 100%;
     display: flex;

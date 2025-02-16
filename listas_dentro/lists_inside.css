@@ -209,6 +209,7 @@ section {
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
     color: #300458;
+    overflow-y: auto;
 }
 
     .tarjeta:hover {

@@ -421,6 +421,9 @@ const loadLists = (lists) => {
                     const dateread = document.getElementById('dateread');
                     dateread.innerHTML = '';
                     dateread.textContent = book.dateread;
+
+                    const editbook = document.getElementById("edit");
+                    editbook.href = `../new_book/edit_book.html?id=${id}`;
         
                     const lists = document.getElementById('booklists');
                     lists.innerHTML = '';
@@ -444,29 +447,8 @@ const loadLists = (lists) => {
 document.addEventListener("DOMContentLoaded", function () {
     printBook(id);
 
-
-            /*const owned = document.getElementById("owned");
-            if (book.owned === true) {
-                owned.style= 'opacity: 1'; 
-            
-            }
-            else if (book.owned === false) {
-                owned.style= 'opacity: 0.5'; 
-
-            }
-
-            console.log(book.customlists);
-            book.customlists.forEach((list)=>{
-                console.log(printList(list.id));
-
-                printList(list);*/
-                
-
             //document.getElementById('movie').textContent = `Cargando movie con id: ${id}...`;
-        }).catch((error) => {
-            onError(error.message);
-            console.log(error.message);
-});
+        });
 
 
 
@@ -479,9 +461,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //Send to edit page
-document.getElementById("edit").addEventListener("click", function (){
-
-
+/*document.getElementById("edit").addEventListener("click", aynsc () => {
+    console.log("hola");
     window.location.href = `../new_book/edit_book.html?id=${id}`;
   
-});
+});*/
+
+//Delete a book
+
+const deleteheader = {
+    method: 'DELETE', // PUT, DELETE, GET, PATCH
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    //body: JSON.stringify(movie) // puede ir o no
+};
+
+const getDeleteBook = async (id) => {
+    return fetch(`http://localhost:3000/books/delete/${id}`, deleteheader)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.error('Ocurrió un error:', error.message);
+            throw new Error('Error al cargar favbooks');
+        });
+};
+
+document.getElementById("delete").addEventListener("click", async () => {
+    const param = new URLSearchParams(document.location.search);
+    const id = param.get('id');
+    if (confirm("Delete book\nEither OK or Cancel.")===true){
+    getDeleteBook(id);
+    alert(`Deleted book ${id}`);
+    window.location.href = `../listas_carrusel/carrusel.html`}
+})

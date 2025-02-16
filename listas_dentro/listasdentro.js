@@ -72,7 +72,7 @@ const printbook = async(bookId) => {
                                 <p>${book.author}</p>;*/
 
 
-                    const title = document.createElement('h2');
+                    const title = document.createElement('h3');
                     title.innerHTML = '';
                     title.textContent = book.title;
 
