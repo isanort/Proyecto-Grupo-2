@@ -383,3 +383,40 @@ const printListBook = async() => {
     }
 
 printListBook();
+
+
+
+const button = document.querySelectorAll('.option');
+console.log(button);
+
+button.forEach((button) => {
+    console.log(button.id);
+    button.addEventListener("click", async () => {
+    if (button.id === "favtitle") {
+        console.log(button.id);
+        const fav = document.getElementById("fav");
+        console.log(fav.id);
+        window.location.href = `../listas_dentro/lists_inside_options.html?option=${fav.id}`;
+    }
+    else if (button.id === "toreadtitle") {
+        const toread = document.getElementById("toread");
+        console.log(button.id);
+        console.log(toread.id);
+        window.location.href = `../listas_dentro/lists_inside_options.html?option=${toread.id}`;
+    }
+    else if (button.id === "ownedtitle") {
+        const owned = document.getElementById("owned");
+        console.log(button.id);
+        console.log(owned.id);
+        window.location.href = `../listas_dentro/lists_inside_options.html?option=${owned.id}`;
+    }
+    else if (button.id === "allbookstitle") {
+        const allbooks = document.getElementById("allbooks");
+        console.log(button.id);
+        console.log(allbooks.id);
+        window.location.href = `../listas_dentro/lists_inside_options.html?option=${allbooks.id}`;
+    }
+
+})})
+
+

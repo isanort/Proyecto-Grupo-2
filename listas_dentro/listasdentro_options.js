@@ -1,8 +1,8 @@
 console.log('Cargando datos...');
 
 const param = new URLSearchParams(document.location.search);
-const id = param.get('id');
-console.log('ID:', id);
+const option = param.get('option');
+console.log('ID:', option);
 
 const headers = {
     method: 'GET', // PUT, DELETE, GET, PATCH
@@ -28,9 +28,9 @@ const getBook = async (id) => {
 };
 
 
-const getOption = async (id) => {
+const getOption = async () => {
     try {
-        const response = await fetch(`http://localhost:3000/books/option/${id}`);
+        const response = await fetch(`http://localhost:3000/books/option/${option}`);
         console.log(response);
         if (response.ok) {
             return await response.json();
@@ -104,48 +104,6 @@ const printbook = async(bookId) => {
     }
 
 
-    
-const getFavBooks = async () => {
-    return fetch(`http://localhost:3000/books/fav`, headers)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud: ' + response.status);
-            }
-            return response.json();
-        })
-        .catch((error) => {
-            console.error('Ocurrió un error:', error.message);
-            throw new Error('Error al cargar favbooks');
-        });
-};
-
-const getToReadBooks = async () => {
-return fetch(`http://localhost:3000/books/toread`, headers)
-    .then((response) => {
-        if (!response.ok) 
-            throw new Error('Error en la solicitud: ' + response.status);
-        
-        return response.json();
-        })
-    .catch((error) => {
-        console.error('Ocurrió un error:', error.message);
-        throw new Error('Error al cargar toreadbooks');
-    });
-};
-
-const getOwnedBooks = async () => {
-    return fetch(`http://localhost:3000/books/owned`, headers)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud: ' + response.status);
-            }
-            return response.json();
-        })
-        .catch((error) => {
-            console.error('Ocurrió un error:', error.message);
-            throw new Error('Error al cargar ownedbooks');
-        });
-};
 
 const getReadBooks = async () => {
     return fetch(`http://localhost:3000/books/read`, headers)
@@ -162,20 +120,42 @@ const getReadBooks = async () => {
 };
 
 
-const printFav = async () => {
-    
+const printOption = async () => {
+
     const name = document.getElementById('name');
     name.innerHTML = '';
-    name.textContent = "Favorites";
-    getFavBooks()
+
+    const webname = document.getElementById('webname');
+    webname.innerHTML = '';
+
+    if (option === "fav"){
+        name.textContent = "Favorites" ;
+        webname.textContent ="Favorites";
+    }
+    else if (option === "toread"){
+        name.textContent = "To Read" ;
+        webname.textContent ="To Read";
+    }
+
+    else if (option === "owned"){
+        name.textContent = "Owned" ;
+        webname.textContent ="Owned";
+    }
+
+    else if (option === "allbooks"){
+        name.textContent = "All your books" ;
+        webname.textContent ="All your books";
+    }
+    
+    getOption()
         .then((books) => {
 
             console.log(books)
 
-            books.forEach( (bookId) => {
-                console.log(bookId);
+            books.forEach( (book) => {
+                console.log(book);
                 console.log("hiiii");
-                printbook(bookId);
+                printbook(book);
             
             })})
         
@@ -185,4 +165,6 @@ const printFav = async () => {
             });
 }
 
-printFav()
+printOption()
+
+

@@ -136,48 +136,6 @@ const printlist = async (id) => {
 }
 
 printlist(id)
-    
-const getFavBooks = async () => {
-    return fetch(`http://localhost:3000/books/fav`, headers)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud: ' + response.status);
-            }
-            return response.json();
-        })
-        .catch((error) => {
-            console.error('Ocurrió un error:', error.message);
-            throw new Error('Error al cargar favbooks');
-        });
-};
-
-const getToReadBooks = async () => {
-return fetch(`http://localhost:3000/books/toread`, headers)
-    .then((response) => {
-        if (!response.ok) 
-            throw new Error('Error en la solicitud: ' + response.status);
-        
-        return response.json();
-        })
-    .catch((error) => {
-        console.error('Ocurrió un error:', error.message);
-        throw new Error('Error al cargar toreadbooks');
-    });
-};
-
-const getOwnedBooks = async () => {
-    return fetch(`http://localhost:3000/books/owned`, headers)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud: ' + response.status);
-            }
-            return response.json();
-        })
-        .catch((error) => {
-            console.error('Ocurrió un error:', error.message);
-            throw new Error('Error al cargar ownedbooks');
-        });
-};
 
 const getReadBooks = async () => {
     return fetch(`http://localhost:3000/books/read`, headers)
@@ -192,30 +150,6 @@ const getReadBooks = async () => {
             throw new Error('Error al cargar favbooks');
         });
 };
-
-
-const printFav = async () => {
-    
-    const name = document.getElementById('name');
-    name.innerHTML = '';
-    name.textContent = "favorites";
-    getFavBooks()
-        .then((books) => {
-
-            console.log(books)
-
-            books.forEach( (bookId) => {
-                console.log(bookId);
-                console.log("hiiii");
-                printbook(bookId);
-            
-            })})
-        
-            .catch((error) => {
-                onError(error.message);
-                console.log("error in here")
-            });
-}
 
 
 document.getElementById("edit").addEventListener("click", async () => {
