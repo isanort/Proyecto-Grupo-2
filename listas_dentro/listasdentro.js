@@ -23,7 +23,7 @@ const deleteheader = {
 
 const getList = async (id) => {
     try {
-        const response = await fetch(`http://localhost:3000/lists/${id}`);
+        const response = await fetch(`http://localhost:3000/lists/all/${id}`);
         if (response.ok) {
             return await response.json();
         }
@@ -58,10 +58,10 @@ const onError = (message) => {
 }
 
 
-const printbook = async(bookId) => {
-        console.log(bookId);
+const printbook = async(book) => {
+        console.log(book);
         console.log("bookId");
-        getBook(bookId.id)
+        getBook(book.id)
             .then((book) => {
                 console.log("llamada libro", book);
                 console.log("hola"); /////////cambiar para que sea más simple
@@ -122,12 +122,12 @@ const printlist = async (id) => {
 
             console.log(books)
 
-            books.forEach( (bookId) => {
-                console.log(bookId);
-                console.log("hiiii");
-                printbook(bookId);
+            for (const book of books) {
+                console.log(book.id);
+                printbook(book);
+                }
             
-            })})
+            })
         
             .catch((error) => {
                 onError(error.message);
