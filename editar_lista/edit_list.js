@@ -29,8 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const description = document.getElementById("description");
             description.value = list.description;
 
-
-
             const webname = document.getElementById("webname");
             webname.textContent = list.name;
         })})
@@ -47,10 +45,7 @@ const headers = {
 
 const editList = async (listid) => {
     const listname = document.getElementById("name");
-    
-  
     const listdescription = document.getElementById("description");
-
 
     console.log("hello")
     return fetch(`http://localhost:3000/lists/${listid}?name=${listname.value}&description=${listdescription.value}`, headers)
@@ -80,10 +75,7 @@ console.log(listid);
 const form = document.querySelector("form"); // Seleccionamos el formulario
 
 form.addEventListener("submit", async function (event) {
-  event.preventDefault(); 
- 
-  
-   
+    event.preventDefault(); 
     console.log("hello")
     editList(listid);
     alert("Edited list");

@@ -324,7 +324,7 @@ document.getElementById("lists").addEventListener("change", async () => {
         }
     } catch (error) {
         console.error("Error en la solicitud:", error);
-       
+
         }
     });
 
